@@ -151,7 +151,7 @@ void make_plot (double (*fcn)(Double_t *x, Double_t *par), Double_t low, Double_
     c -> Print(filename);
 }
 
-// ============== main function ============== //
+// ============== main function =============== //
 int paper_plots () {
 
     cout << "\nsqrt(s) = " << sqrt(S) << " GeV " << endl;
