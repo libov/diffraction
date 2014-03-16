@@ -52,7 +52,8 @@ double photon_flux(double om) {
 }
 
 double sigma_gamma_p_simple(double W) {
-    return pow(W, DELTA);
+    // sigma(gammap->Vp) = 3.0 nb *(W/W0)^0.8
+    return ( 3.0 * pow(W, DELTA) );
 }
 
 double sigma_gamma_p_realistic(double W) {
@@ -169,8 +170,8 @@ int paper_plots () {
 
     // simple case, sigma(gamma p->V p)=W^0.8
     par[0]=1;
-    make_plot(sigma_Y, -10,  10, par, "sigma_y_simple.eps", "Rapidity Y", y_axis_title_prefix+" / dY, units be clarified", legend_entry_prefix+legend_entry_ending_simple);
-    make_plot(sigma_W,   0, 100, par, "sigma_w_simple.eps",     "W [GeV]", y_axis_title_prefix+" / dW, units be clarified", legend_entry_prefix+legend_entry_ending_simple);
+    make_plot(sigma_Y, -10,  10, par, "sigma_y_simple.eps", "Rapidity Y", y_axis_title_prefix+" / dY [nb]", legend_entry_prefix+legend_entry_ending_simple);
+    make_plot(sigma_W,   0, 100, par, "sigma_w_simple.eps",     "W [GeV]", y_axis_title_prefix+" / dW [nb/GeV]", legend_entry_prefix+legend_entry_ending_simple);
 
     // realistic case, Laszlo's model
     par[0]=2;
