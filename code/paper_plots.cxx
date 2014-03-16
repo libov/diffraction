@@ -154,6 +154,7 @@ void make_plot (double (*fcn)(Double_t *x, Double_t *par), Double_t low, Double_
 // ============== main function =============== //
 int paper_plots () {
 
+    // welcome info
     cout << "\nsqrt(s) = " << sqrt(S) << " GeV " << endl;
     cout << "gamma = " << GAMMA << endl;
     cout << "vector meson mass MV = " << MV << " GeV " << endl;
