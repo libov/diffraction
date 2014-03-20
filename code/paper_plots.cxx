@@ -64,6 +64,7 @@ double sigma_gamma_p_realistic(double W) {
     double alphaprim=0.17;
     double a=1.01;
     double b=0.44;
+    double S=pow(W, 2);
     double S0=1.;
 
     double Q2tilde=MV*MV;
