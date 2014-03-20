@@ -129,7 +129,7 @@ double sigma_W (Double_t *x, Double_t *par) {
 
 
 // ============== plotting routine ============== //
-void make_plot (double (*fcn)(Double_t *x, Double_t *par), Double_t low, Double_t up, Double_t * param, TString filename, TString x_axis_title, TString y_axis_title, TString legend_entry) {
+void make_plot (double (*fcn)(Double_t *x, Double_t *par), Double_t low, Double_t up, Double_t * param, TString filename, TString x_axis_title, TString y_axis_title, TString legend_entry, bool logx, bool logy) {
 
     TCanvas *c = new TCanvas();
 
@@ -137,10 +137,12 @@ void make_plot (double (*fcn)(Double_t *x, Double_t *par), Double_t low, Double_
 
     f -> SetParameters(param);
 
-    f -> SetNpx(1000);
+    f -> SetNpx(10000);
     f -> GetHistogram() -> SetXTitle (x_axis_title);
     f -> GetHistogram() -> SetYTitle (y_axis_title);
     f -> SetLineWidth(3);
+    if (logx) gPad -> SetLogx();
+    if (logy) gPad -> SetLogy();
     f -> Draw();
 
     TLegend * leg = new TLegend (0.3, 0.5, 0.7, 0.7);
@@ -171,13 +173,13 @@ int paper_plots () {
 
     // simple case, sigma(gamma p->V p)=W^0.8
     par[0]=1;
-    make_plot(sigma_Y, -10,  10, par, "sigma_y_simple.eps", "Rapidity Y", y_axis_title_prefix+" / dY [nb]", legend_entry_prefix+legend_entry_ending_simple);
-    make_plot(sigma_W,   0, 100, par, "sigma_w_simple.eps",     "W [GeV]", y_axis_title_prefix+" / dW [nb/GeV]", legend_entry_prefix+legend_entry_ending_simple);
+    make_plot(sigma_Y, -10,  10, par, "sigma_y_simple.eps", "Rapidity Y", y_axis_title_prefix+" / dY [nb]", legend_entry_prefix+legend_entry_ending_simple, false, false);
+    make_plot(sigma_W,  1, 10, par, "sigma_w_simple.eps",     "W [GeV]", y_axis_title_prefix+" / dW [nb/GeV]", legend_entry_prefix+legend_entry_ending_simple, true, false);
 
     // realistic case, Laszlo's model
     par[0]=2;
-    make_plot(sigma_Y, -10, 10,  par, "sigma_y_realistic.eps", "Rapidity Y", y_axis_title_prefix+" / dY [nb]", legend_entry_prefix+legend_entry_ending_realistic);
-    make_plot(sigma_W, 0,   100, par, "sigma_w_realistic.eps", "W [GeV]",     y_axis_title_prefix+" / dW [nb/GeV]", legend_entry_prefix+legend_entry_ending_realistic);
+    make_plot(sigma_Y, -10, 10,  par, "sigma_y_realistic.eps", "Rapidity Y", y_axis_title_prefix+" / dY [nb]", legend_entry_prefix+legend_entry_ending_realistic, false, false);
+    make_plot(sigma_W,  1e-3,   100, par, "sigma_w_realistic.eps", "W [GeV]",     y_axis_title_prefix+" / dW [nb/GeV]", legend_entry_prefix+legend_entry_ending_realistic, true, false);
 
     return 0;
 }
