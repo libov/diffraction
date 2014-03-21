@@ -53,8 +53,8 @@ double photon_flux(double om) {
 }
 
 double sigma_gamma_p_simple(double W) {
-    // sigma(gammap->Vp) = 3.0 nb *(W/W0)^0.8
-    return ( 3.0 * pow(W, DELTA) );
+    // sigma(gammap->Vp) = 1.5 nb *(W/W0)^0.8
+    return ( 1.5 * pow(W, DELTA) );
 }
 
 double sigma_gamma_p_realistic(double W) {
