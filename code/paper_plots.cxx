@@ -124,7 +124,9 @@ double sigma_W (Double_t *x, Double_t *par) {
         abort();
     }
 
-    return ( photon_flux(omega) * sigma_gamma_p * W/sqrt(S) );
+    // return ( photon_flux(omega) * sigma_gamma_p * W/sqrt(S) );
+    Double_t y[1] = {log(2*omega/MV)};
+    return ( sigma_Y(y, par)/W );
 }
 
 
