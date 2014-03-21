@@ -144,8 +144,9 @@ void make_plot (double (*fcn)(Double_t *x, Double_t *par), Double_t low, Double_
     if (logx) gPad -> SetLogx();
     if (logy) gPad -> SetLogy();
     f -> Draw();
+    ((TH1F*)f -> GetHistogram()) -> SetAxisRange(0, 1.25 * f -> GetMaximum(), "Y" );
 
-    TLegend * leg = new TLegend (0.3, 0.5, 0.7, 0.7);
+    TLegend * leg = new TLegend (0.45, 0.8, 0.85, 0.9);
     leg -> AddEntry(f, legend_entry, "l");
     leg -> SetFillColor(0);
     leg -> SetBorderSize(0);
