@@ -13,6 +13,7 @@ const double MV    = 3.096916;
 const double DELTA = 0.8;
 const double ALPHA = 1./137;
 const double PI    = TMath::Pi();
+const double S2GAP = 0.8;
 
 // ========== helping functions ========== //
 TString toStr(Double_t arg, Int_t decimals);
