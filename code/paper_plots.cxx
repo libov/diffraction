@@ -38,7 +38,7 @@ double omega_plus(double Y) { return omega(Y); }
 double omega_minus(double Y) { return omega(-Y); }
 
 double W(double om) { return sqrt( 2  * om * sqrt(S) ); }
-double OMEGA(double om) { return ( 1 + 0.71 * pow(GAMMA, 2) / pow(om, 2.) ); }
+double OMEGA(double om) { return ( 1 + 0.71 * pow(GAMMA, 2.) / pow(om, 2.) ); }
 
 double photon_flux(double om) {
 
