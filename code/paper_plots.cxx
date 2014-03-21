@@ -171,15 +171,22 @@ int paper_plots () {
 
     Double_t par[99];
 
+    Double_t y_abs_max = - TMath::Log(MV/sqrt(S));
+    Double_t ymin = -y_abs_max;
+    Double_t ymax =  y_abs_max;
+
+    Double_t Wmin = sqrt (MV * sqrt(S) * exp(ymin));
+    Double_t Wmax = sqrt (MV * sqrt(S) * exp(ymax));
+
     // simple case, sigma(gamma p->V p)=W^0.8
     par[0]=1;
-    make_plot(sigma_Y, -10,  10, par, "sigma_y_simple.eps", "Rapidity Y", y_axis_title_prefix+" / dY [nb]", legend_entry_prefix+legend_entry_ending_simple, false, false);
-    make_plot(sigma_W,  1, 10, par, "sigma_w_simple.eps",     "W [GeV]", y_axis_title_prefix+" / dW [nb/GeV]", legend_entry_prefix+legend_entry_ending_simple, true, false);
+    make_plot(sigma_Y, ymin, ymax, par, "sigma_y_simple.eps", "Rapidity Y",  y_axis_title_prefix+" / dY [nb]",     legend_entry_prefix+legend_entry_ending_simple, false, false);
+    make_plot(sigma_W, Wmin, Wmax, par, "sigma_w_simple.eps",     "W [GeV]", y_axis_title_prefix+" / dW [nb/GeV]", legend_entry_prefix+legend_entry_ending_simple, true, false);
 
     // realistic case, Laszlo's model
     par[0]=2;
-    make_plot(sigma_Y, -10, 10,  par, "sigma_y_realistic.eps", "Rapidity Y", y_axis_title_prefix+" / dY [nb]", legend_entry_prefix+legend_entry_ending_realistic, false, false);
-    make_plot(sigma_W,  1e-3,   100, par, "sigma_w_realistic.eps", "W [GeV]",     y_axis_title_prefix+" / dW [nb/GeV]", legend_entry_prefix+legend_entry_ending_realistic, true, false);
+    make_plot(sigma_Y, ymin, ymax, par, "sigma_y_realistic.eps", "Rapidity Y", y_axis_title_prefix+" / dY [nb]",     legend_entry_prefix+legend_entry_ending_realistic, false, false);
+    make_plot(sigma_W, Wmin, Wmax, par, "sigma_w_realistic.eps", "W [GeV]",    y_axis_title_prefix+" / dW [nb/GeV]", legend_entry_prefix+legend_entry_ending_realistic, true, false);
 
     return 0;
 }
