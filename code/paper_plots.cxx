@@ -65,15 +65,14 @@ double sigma_gamma_p_realistic(double W) {
     double alphaprim=0.17;
     double a=1.01;
     double b=0.44;
-    double S=pow(W, 2);
-    double S0=1.;
+    double W0=1.;
 
     double Q2tilde=MV*MV;
 
     double term1 = A0*A0;
-    double term2 = pow( S/S0, 2*(alpha0-1) );
+    double term2 = pow( W/W0, 2*2*(alpha0-1) ); // additional factor 2 because s=W^2
     double term3 = pow(1+Q2tilde/Q20, 2*n);
-    double term4 = 2*alphaprim*log(S/S0) + 4*(a/Q2tilde+b/(2*MP*MP) ) ;
+    double term4 = 2*2*alphaprim*log(W/W0) + 4*(a/Q2tilde+b/(2*MP*MP) ) ; // additional factor 2 in the first term because s=W^2
 
     return ( (term1*term2) / (term3*term4) );
 }
