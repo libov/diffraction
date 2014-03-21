@@ -101,7 +101,7 @@ double sigma_Y (Double_t *x, Double_t *par) {
         abort();
     }
 
-    return (
+    return S2GAP * (
              om_pl * photon_flux(om_pl) * sigma_gamma_p_plus
            + om_mi * photon_flux(om_mi) * sigma_gamma_p_minus
            );
