@@ -22,7 +22,7 @@ TVectorMeson.o: TVectorMeson.cxx TVectorMeson.h
 	gcc -o $(OBJ)/$@ -c $< -I inc/ $(FLAGS_OBJ)
 
 plots.exe: plots.o TVectorMeson.o
-	gcc -o plots.exe $(OBJ)/plots.o $(OBJ)/TVectorMeson.o  $(FLAGS) -lMinuit -lstdc++
+	gcc -o plots.exe $(OBJ)/plots.o $(OBJ)/TVectorMeson.o  $(FLAGS) -lMinuit -lstdc++  -lMLP -lXMLIO
 
 .PHONY: clean
 clean:
