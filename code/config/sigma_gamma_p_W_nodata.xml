@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<plot>
+  <legend>
+    <title>J/#Psi at LHC, #sqrt{s}=7 TeV</title>
+    <x1>0.375</x1>
+    <y1>0.15</y1>
+    <x2>0.775</x2>
+    <y2>0.4</y2>
+  </legend>
+  <cms_energy>7e3</cms_energy>
+  <meson_type>jpsi</meson_type>
+  <filename>sigma_gamma_p_W.eps</filename>
+  <datafile></datafile>
+  <x_axis>
+    <title>W [GeV]</title>
+    <low_range>3.1</low_range>
+    <up_range>7e3</up_range>
+    <log>true</log>
+  </x_axis>
+  <y_axis>
+    <title>d#sigma(#gamma p #rightarrow Vp) [nb]</title>
+    <low_range>0.1</low_range>
+    <up_range>1000</up_range>
+    <log>true</log>
+  </y_axis>
+
+  <plot>
+    <sigma_gamma_p_model>powerlaw</sigma_gamma_p_model>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} #propto W^{0.8}</legend_entry>
+    <process>gammap</process>
+    <variable>w</variable>
+    <line_style>1</line_style>
+    <line_color>2</line_color>
+  </plot>
+
+  <plot>
+    <sigma_gamma_p_model>reggeometry</sigma_gamma_p_model>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} from eq.(2)</legend_entry>
+    <process>gammap</process>
+    <variable>w</variable>
+    <line_style>3</line_style>
+    <line_color>4</line_color>
+  </plot>
+ 
+</plot>
