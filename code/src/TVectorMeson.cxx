@@ -85,6 +85,8 @@ void TVectorMeson::draw_theory (sigma_gamma_p_model sigma_model, process p, vari
     if ( p == kPP ) {
         if ( v == kY ) f = new TF1("f", this, &TVectorMeson::dSigma_dy, fLowX, fUpX, 1, "","");
         if ( v == kW ) f = new TF1("f", this, &TVectorMeson::dSigma_dW, fLowX, fUpX, 1, "","");
+    } else if ( p == kGammaP ) {
+        f = new TF1("f", this, &TVectorMeson::sigma_gamma_p, fLowX, fUpX, 1, "","");
     }
     
     f -> SetParameters(par);
@@ -185,6 +187,11 @@ Double_t TVectorMeson::sigma_gamma_p_reggeometry ( Double_t W ) {
     double term4 = 2*2*alphaprim*log(W/W0) + 4*(a/Q2tilde+b/(2*pow(PROTON_MASS,2)) ) ; // additional factor 2 in the first term because s=W^2
 
     return ( (term1*term2) / (term3*term4) );
+}
+
+Double_t TVectorMeson::sigma_gamma_p (Double_t *x, Double_t *par) {
+    if ( par[0] == 1 ) return sigma_gamma_p_power_law(x[0]);
+    if ( par[0] == 2 ) return sigma_gamma_p_reggeometry(x[0]);
 }
 
 Double_t TVectorMeson::photon_energy ( Double_t rapidity ) {
