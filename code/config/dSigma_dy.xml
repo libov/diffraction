@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<plot>
+  <legend>
+    <title>J/#Psi at LHC, #sqrt{s}=7 TeV</title>
+    <x1>0.375</x1>
+    <y1>0.15</y1>
+    <x2>0.775</x2>
+    <y2>0.4</y2>
+  </legend>
+  <cms_energy>7e3</cms_energy>
+  <meson_type>jpsi</meson_type>
+  <filename>dSigma_dy.eps</filename>
+  <datafile></datafile>
+  <x_axis>
+    <title>Rapidity Y</title>
+    <low_range>2.0</low_range>
+    <up_range>4.5</up_range>
+    <log>false</log>
+  </x_axis>
+  <y_axis>
+    <title>d#sigma(pp #rightarrow pVp) / dY [nb]</title>
+    <low_range>0</low_range>
+    <up_range>6</up_range>
+    <log>false</log>
+  </y_axis>
+
+  <plot>
+    <sigma_gamma_p_model>powerlaw</sigma_gamma_p_model>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} #propto W^{0.8}</legend_entry>
+    <process>pp</process>
+    <variable>y</variable>
+    <line_style>1</line_style>
+    <line_color>2</line_color>
+  </plot>
+
+  <plot>
+    <sigma_gamma_p_model>reggeometry</sigma_gamma_p_model>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} from eq.(2)</legend_entry>
+    <process>pp</process>
+    <variable>y</variable>
+    <line_style>3</line_style>
+    <line_color>4</line_color>
+  </plot>
+
+   <dataplot>
+       <filename>/home/vladyslav/git_repositories/diffraction/data/jpsi_lhcb2014_dsdy.txt</filename>
+       <legend_entry>LHCb 930 pb^{-1}</legend_entry>
+       <marker_style>21</marker_style>
+       <marker_size>1</marker_size>
+       <marker_color>1</marker_color>
+   </dataplot>
+  
+</plot>
