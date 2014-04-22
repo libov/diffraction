@@ -41,5 +41,14 @@
     <line_style>3</line_style>
     <line_color>4</line_color>
   </plot>
- 
+
+  <dataplot>
+    <filename>/home/vladyslav/git_repositories/diffraction/data/lhcb_sigwexp_wplus.txt</filename>
+    <legend_entry>LHCb 930 pb^{-1}</legend_entry>
+    <marker_style>21</marker_style>
+    <marker_size>1</marker_size>
+    <marker_color>1</marker_color>
+  </dataplot>
+
+  
 </plot>
