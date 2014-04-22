@@ -2,9 +2,9 @@
 <plot>
   <legend>
     <title>J/#Psi at LHC, #sqrt{s}=7 TeV</title>
-    <x1>0.375</x1>
+    <x1>0.45</x1>
     <y1>0.15</y1>
-    <x2>0.775</x2>
+    <x2>0.85</x2>
     <y2>0.4</y2>
   </legend>
   <cms_energy>7e3</cms_energy>
@@ -19,7 +19,7 @@
   </x_axis>
   <y_axis>
     <title>d#sigma(#gamma p #rightarrow Vp) [nb]</title>
-    <low_range>0.1</low_range>
+    <low_range>1</low_range>
     <up_range>1000</up_range>
     <log>true</log>
   </y_axis>
@@ -44,7 +44,15 @@
 
   <dataplot>
     <filename>/home/vladyslav/git_repositories/diffraction/data/lhcb_sigwexp_wplus.txt</filename>
-    <legend_entry>LHCb 930 pb^{-1}</legend_entry>
+    <legend_entry>LHCb 36 pb^{-1} (W^{+} solutions)</legend_entry>
+    <marker_style>20</marker_style>
+    <marker_size>1</marker_size>
+    <marker_color>1</marker_color>
+  </dataplot>
+
+    <dataplot>
+    <filename>/home/vladyslav/git_repositories/diffraction/data/lhcb_sigwexp_wminus.txt</filename>
+    <legend_entry>LHCb 36 pb^{-1} (W^{-} solutions)</legend_entry>
     <marker_style>21</marker_style>
     <marker_size>1</marker_size>
     <marker_color>1</marker_color>
