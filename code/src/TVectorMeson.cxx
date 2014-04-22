@@ -99,7 +99,7 @@ void TVectorMeson::draw_theory (sigma_gamma_p_model sigma_model, process p, vari
     fLegend -> AddEntry(f, legend_entry, "l");
 }
 
-void TVectorMeson::draw_data (TString filename, TString legend_entry) {
+void TVectorMeson::draw_data (TString filename, TString legend_entry, unsigned marker_style) {
 
     // open the file
     ifstream f(filename);
@@ -146,7 +146,7 @@ void TVectorMeson::draw_data (TString filename, TString legend_entry) {
     }
     
     TGraphErrors * g = new TGraphErrors(npoints, y, sigma, y_err, sigma_err);
-    g -> SetMarkerStyle(21);
+    g -> SetMarkerStyle(marker_style);
     g -> Draw("p");
     
     fLegend -> AddEntry(g, legend_entry, "p");

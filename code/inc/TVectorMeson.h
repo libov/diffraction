@@ -40,7 +40,7 @@ class TVectorMeson {
         void        Initialise();
         void        Print(TString filename);
         void        draw_theory (sigma_gamma_p_model sigma_model, process p, variable v, TString legend_entry, unsigned line_style, unsigned line_color);
-        void        draw_data (TString filename, TString legend_entry);
+        void        draw_data (TString filename, TString legend_entry, unsigned marker_style);
 
         // formulas
         Double_t    sigma_gamma_p_power_law             ( Double_t W );
