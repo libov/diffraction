@@ -175,6 +175,7 @@ int main (int argc, char **argv) {
             
             TString filename;
             TString legend_entry;
+            unsigned marker_style;
             
             while (child2!=0) {
  
@@ -183,11 +184,12 @@ int main (int argc, char **argv) {
 
                 if (child2_name == "filename") filename = child2_content;
                 if (child2_name == "legend_entry") legend_entry = child2_content;
+                if (child2_name == "marker_style") marker_style = child2_content.Atoi();
 
                 child2 = xml->GetNext(child2);
             }
             
-            instance.draw_data(filename, legend_entry);
+            instance.draw_data(filename, legend_entry, marker_style);
         }
         child = xml->GetNext(child);
     }
