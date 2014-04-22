@@ -112,7 +112,6 @@ void TVectorMeson::draw_data (TString filename, TString legend_entry) {
     Double_t y_err[99];
     Double_t sigma[99];
     Double_t sigma_err[99];
-    Double_t correction[99];
     unsigned npoints = 0;
     
     string line;
@@ -138,12 +137,6 @@ void TVectorMeson::draw_data (TString filename, TString legend_entry) {
         y_err[npoints] = 0;
         sigma[npoints] = ((TObjString*)tokens->At(1)) -> GetString().Atof();
         sigma_err[npoints] = ((TObjString*)tokens->At(2)) -> GetString().Atof();
-        correction[npoints] = ((TObjString*)tokens->At(3)) -> GetString().Atof();
-        
-        // correct for muion-in-y-range, branching ratio to two muons and convert from pb to nb
-        Double_t corr = fMesonBranchingRatio * correction[npoints] * 1e3;
-        sigma[npoints] /= corr;
-        sigma_err[npoints] /= corr;
         
         npoints++;
     }
