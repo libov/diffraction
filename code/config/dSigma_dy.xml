@@ -43,7 +43,7 @@
   </plot>
 
    <dataplot>
-       <filename>/home/vladyslav/git_repositories/diffraction/data/jpsi_lhcb2014_dsdy.txt</filename>
+       <filename>../data/jpsi_lhcb2014_dsdy.txt</filename>
        <legend_entry>LHCb 930 pb^{-1}</legend_entry>
        <marker_style>21</marker_style>
        <marker_size>1</marker_size>

@@ -43,7 +43,7 @@
   </plot>
 
   <dataplot>
-    <filename>/home/vladyslav/git_repositories/diffraction/data/lhcb_sigwexp_wplus.txt</filename>
+    <filename>../data/lhcb_sigwexp_wplus.txt</filename>
     <legend_entry>LHCb 36 pb^{-1} (W^{+} solutions)</legend_entry>
     <marker_style>20</marker_style>
     <marker_size>1</marker_size>
@@ -51,7 +51,7 @@
   </dataplot>
 
     <dataplot>
-    <filename>/home/vladyslav/git_repositories/diffraction/data/lhcb_sigwexp_wminus.txt</filename>
+    <filename>../data/lhcb_sigwexp_wminus.txt</filename>
     <legend_entry>LHCb 36 pb^{-1} (W^{-} solutions)</legend_entry>
     <marker_style>21</marker_style>
     <marker_size>1</marker_size>
