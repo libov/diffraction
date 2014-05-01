@@ -21,7 +21,10 @@ plots.o: plots.cxx
 TVectorMeson.o: TVectorMeson.cxx TVectorMeson.h
 	gcc -o $(OBJ)/$@ -c $< -I inc/ $(FLAGS_OBJ)
 
-plots.exe: plots.o TVectorMeson.o
+TXMLParser.o: TXMLParser.cxx TXMLParser.h
+	gcc -o $(OBJ)/$@ -c $< -I inc/ $(FLAGS_OBJ)
+
+plots.exe: plots.o TVectorMeson.o TXMLParser.o
 	gcc -o plots.exe $(OBJ)/plots.o $(OBJ)/TVectorMeson.o  $(FLAGS) -lMinuit -lstdc++  -lMLP -lXMLIO
 
 .PHONY: clean
