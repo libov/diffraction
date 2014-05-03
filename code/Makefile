@@ -25,7 +25,7 @@ TXMLParser.o: TXMLParser.cxx TXMLParser.h
 	gcc -o $(OBJ)/$@ -c $< -I inc/ $(FLAGS_OBJ)
 
 plots.exe: plots.o TVectorMeson.o TXMLParser.o
-	gcc -o plots.exe $(OBJ)/plots.o $(OBJ)/TVectorMeson.o  $(FLAGS) -lMinuit -lstdc++  -lMLP -lXMLIO
+	gcc -o plots.exe $(OBJ)/plots.o $(OBJ)/TVectorMeson.o $(OBJ)/TXMLParser.o $(FLAGS) -lMinuit -lstdc++  -lMLP -lXMLIO
 
 .PHONY: clean
 clean:
