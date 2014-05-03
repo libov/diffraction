@@ -15,14 +15,11 @@
 #include <getopt.h>
 using namespace std;
 
-TVectorMeson::TVectorMeson() {
-}
-
 void    TVectorMeson::Initialise () {
 
     // calculate Lorentz gamma from the CMS energy
     fLorentzGamma =  fCMSEnergy / (2 * PROTON_MASS) ;
-    
+
     // set vector meson mass
     if (fMesonType == kJPSI) {
 
@@ -46,119 +43,14 @@ void    TVectorMeson::Initialise () {
     fYmax =  y_abs_max;
     fWmin = sqrt (fMesonMass * fCMSEnergy * exp(fYmin));
     fWmax = sqrt (fMesonMass * fCMSEnergy * exp(fYmax));
-    cout << fYmin << " " << fYmax << endl;
-    cout << fWmin << " " << fWmax << endl;
-
-    fCanvas = new TCanvas();
-
-    fHistogram = new TH1F ("","",1, fLowX,fUpX);
-    fHistogram -> SetXTitle (fXAxisTitle);
-    fHistogram -> SetYTitle (fYAxisTitle);
-    if (fLogX) gPad -> SetLogx();
-    if (fLogY) gPad -> SetLogy();
-    fHistogram -> SetAxisRange(fLowY, fUpY, "Y");
-    fHistogram -> SetStats(false);
-    fHistogram -> Draw();
-
-    fLegend = new TLegend (fLegendX1, fLegendY1, fLegendX2, fLegendY2);
-    fLegend -> SetHeader(fLegendTitle);
-    fLegend -> SetFillColor(0);
-    fLegend -> SetBorderSize(0);
-    fLegend -> SetTextSize(0.03);
-    fLegend -> Draw();
-}
-
-void TVectorMeson::draw_theory (sigma_gamma_p_model sigma_model, process p, variable v, TString legend_entry, unsigned line_style, unsigned line_color) {
-
-    double par[1];
-    
-    if ( sigma_model == kPOWERLAW ) {
-        par[0] = 1;
-    } else if ( sigma_model == kREGGEOMETRY ) {
-        par[0] = 2;
-    } else {
-        cout << "ERROR: unknown gamma-p cross section model" << endl;
-        abort();
-    }
-
-    TF1 * f;
-    if ( p == kPP ) {
-        if ( v == kY ) f = new TF1("f", this, &TVectorMeson::dSigma_dy, fLowX, fUpX, 1, "","");
-        if ( v == kW ) f = new TF1("f", this, &TVectorMeson::dSigma_dW, fLowX, fUpX, 1, "","");
-    } else if ( p == kGammaP ) {
-        f = new TF1("f", this, &TVectorMeson::sigma_gamma_p, fLowX, fUpX, 1, "","");
-    }
-    
-    f -> SetParameters(par);
-    f -> SetNpx(10000);
-    f -> SetLineWidth(2);
-    f -> SetLineStyle(line_style);
-    f -> SetLineColor(line_color);
-    f -> Draw("same");
-
-    fLegend -> AddEntry(f, legend_entry, "l");
-}
-
-void TVectorMeson::draw_data (TString filename, TString legend_entry, unsigned marker_style) {
-
-    // open the file
-    ifstream f(filename);
-    if (!f.is_open()) {
-        cout << "ERROR: Unable to open file " << filename << endl;
-        abort();
-    }
-
-    Double_t y[99];
-    Double_t y_err[99];
-    Double_t sigma[99];
-    Double_t sigma_err[99];
-    unsigned npoints = 0;
-    
-    string line;
-    while ( f.good() ) {
-
-        // read each line
-        getline (f,line);
-
-        // skip if an empty line
-        if (line=="") continue;
-        // tokenize
-        TString line_str = line;
-        TObjArray * tokens = line_str.Tokenize(" ");
-
-        if (tokens -> GetEntries() == 0) continue;
-        
-        // check if this line is a comment
-        TString first_word = ((TObjString*)tokens->At(0)) -> GetString();
-        char first_char = first_word[0];
-        if (first_char=='#') continue;
-
-        y[npoints] = ((TObjString*)tokens->At(0)) -> GetString().Atof();
-        y_err[npoints] = 0;
-        sigma[npoints] = ((TObjString*)tokens->At(1)) -> GetString().Atof();
-        sigma_err[npoints] = ((TObjString*)tokens->At(2)) -> GetString().Atof();
-        
-        npoints++;
-    }
-    cout << "INFO: npoints= " << npoints << endl;
-    for (unsigned i=0;i<npoints; i++){
-        cout << y[i] << " " << sigma[i] << " " << sigma_err[i] << endl;
-    }
-    
-    TGraphErrors * g = new TGraphErrors(npoints, y, sigma, y_err, sigma_err);
-    g -> SetMarkerStyle(marker_style);
-    g -> Draw("p");
-    
-    fLegend -> AddEntry(g, legend_entry, "p");
-}
-
-void TVectorMeson::Print(TString filename) {
-    fCanvas -> Print(filename);
 }
 
 Double_t TVectorMeson::sigma_gamma_p_power_law ( Double_t W ) {
-    // sigma(gammap->Vp) = 1.5 nb *(W/W0)^0.8, W0 = 1 GeV
-    return ( 1.5 * pow(W, 0.8) );
+    // sigma(gammap->Vp) = a nb *(W/W0)^delta
+    double a = fSigmaGammaPParameters[0];
+    double delta = fSigmaGammaPParameters[1];
+    double W0 = fSigmaGammaPParameters[2];
+    return ( a * pow(W/W0, delta) );
 }
 
 Double_t TVectorMeson::sigma_gamma_p_reggeometry ( Double_t W ) {
@@ -183,8 +75,11 @@ Double_t TVectorMeson::sigma_gamma_p_reggeometry ( Double_t W ) {
 }
 
 Double_t TVectorMeson::sigma_gamma_p (Double_t *x, Double_t *par) {
-    if ( par[0] == 1 ) return sigma_gamma_p_power_law(x[0]);
-    if ( par[0] == 2 ) return sigma_gamma_p_reggeometry(x[0]);
+    if ( fModel == kPOWERLAW ) return sigma_gamma_p_power_law(x[0]);
+    if ( fModel == kREGGEOMETRY ) return sigma_gamma_p_reggeometry(x[0]);
+
+    // if nothing better found...
+    return -1;
 }
 
 Double_t TVectorMeson::photon_energy ( Double_t rapidity ) {
@@ -213,26 +108,18 @@ Double_t TVectorMeson::photon_flux ( Double_t _photon_energy ) {
 Double_t TVectorMeson::dSigma_dy (Double_t *x, Double_t *par) {
 
     double rapidity = x[0];
-
     double photon_energy_plus  = photon_energy ( rapidity );
     double photon_energy_minus = photon_energy ( -rapidity );
 
     double W_plus  = W(photon_energy_plus);
     double W_minus = W(photon_energy_minus);
 
-    double sigma_gamma_p_plus;
-    double sigma_gamma_p_minus;
-
-    if (par[0] == 1) {
-        sigma_gamma_p_plus  = sigma_gamma_p_power_law(W_plus);
-        sigma_gamma_p_minus = sigma_gamma_p_power_law(W_minus);
-    } else if (par[0] == 2) {
-        sigma_gamma_p_plus  = sigma_gamma_p_reggeometry(W_plus);
-        sigma_gamma_p_minus = sigma_gamma_p_reggeometry(W_minus);
-    } else {
-        cout << "ERROR: par[0] not set for sigma_Y function. Please choose the model for sigma_gamma_p cross section" << endl;
-        abort();
-    }
+    Double_t dummy[99];
+    Double_t _W[99];
+    _W[0] = W_plus;
+    double sigma_gamma_p_plus = sigma_gamma_p(_W, dummy);
+    _W[0] = W_minus;
+    double sigma_gamma_p_minus = sigma_gamma_p(_W, dummy);
 
     return S2GAP * (
              photon_energy_plus  * photon_flux(photon_energy_plus)  * sigma_gamma_p_plus
@@ -261,4 +148,23 @@ Double_t TVectorMeson::dSigma_dW (Double_t *x, Double_t *par) {
     // Magno's way
     Double_t y[1] = {log(2*photon_energy/fMesonMass)};
     return ( dSigma_dy(y, par)/W );
+}
+
+void TVectorMeson::set_sigma_gamma_p_model_parameters (Double_t * par, unsigned n) {
+    for (unsigned i=0; i<n; i++){
+        fSigmaGammaPParameters[i] = par[i];
+    }
+}
+
+Double_t TVectorMeson::theory_curve (Double_t *x, Double_t *par) {
+
+    if ( fProcess == kPP ) {
+        if ( fVariable == kY ) return dSigma_dy(x, par);
+        if ( fVariable == kW ) return dSigma_dW(x, par);
+    } else if ( fProcess == kGammaP ) {
+        return sigma_gamma_p(x,par);
+    }
+
+    // if nothing better found...
+    return -1;
 }
