@@ -26,7 +26,8 @@
 
   <plot>
     <sigma_gamma_p_model>powerlaw</sigma_gamma_p_model>
-    <legend_entry>#sigma_{#gamma p#rightarrow V p} #propto W^{0.8}</legend_entry>
+    <parameters>1.5 0.8 1</parameters>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} = 1.5 #times W^{0.8}</legend_entry>
     <process>pp</process>
     <variable>y</variable>
     <line_style>1</line_style>
