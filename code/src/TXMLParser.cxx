@@ -19,23 +19,49 @@ TXMLEngine()
 
     // take access to main node
     fMainNode = DocGetRootElement(xmldoc);
+    selectMainNode();
 }
 
-XMLDocPointer_t   TXMLParser::getNodeByParentAndName(XMLDocPointer_t parent, TString name) {
+void TXMLParser::selectMainNode() {
+    fCurrentNode = fMainNode;
+}
+
+void TXMLParser::selectNode(TString node_name) {
+    fCurrentNode = getNode(node_name);
+}
+
+void TXMLParser::selectNextNode(TString node_name) {
+    XMLDocPointer_t next = GetNext(fCurrentNode);
+    while (next!=0) {
+        TString name = GetNodeName(next);
+        if (node_name == name) {
+            fCurrentNode = next;
+            return;
+        }
+        next = GetNext(next);
+    }
+    fCurrentNode = 0;
+}
+
+XMLDocPointer_t   TXMLParser::getNode(TString node_name) {
 
     // loop over children
-    XMLNodePointer_t child = xml -> GetChild(parent);
+    XMLNodePointer_t child = GetChild(fCurrentNode);
     while (child!=0) {
 
-        TString child_name    = xml -> GetNodeName(child);
+        TString child_name    = GetNodeName(child);
 
-	if (child_name)
+        if ( child_name == node_name ) return child;
+        child = GetNext(child);
+    }
 
-        if ( child_name == "cms_energy" ) instance.set_cms_energy(child_content.Atof());
-        if ( child_name == "meson_type" ) {
-            if (child_content=="jpsi") instance.set_meson_type(kJPSI);
-            if (child_content=="psi")  instance.set_meson_type(kPSI);
-        }
-        if ( child_name == "filename" ) filename = child_content;
+    return 0;
 }
 
+TString TXMLParser::getNodeContent(TString node_name) {
+
+    XMLNodePointer_t child = getNode(node_name);
+    TString content = GetNodeContent(child);
+
+    return content;
+}
