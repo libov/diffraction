@@ -83,6 +83,8 @@ int main (int argc, char **argv) {
 
         if ( parser.getNodeContent("sigma_gamma_p_model") == "powerlaw") {
             meson -> set_sigma_gamma_p_model (kPOWERLAW);
+        } else if ( parser.getNodeContent("sigma_gamma_p_model") == "logarithmic") {
+            meson -> set_sigma_gamma_p_model (kLOGARITHMIC);
         } else if ( parser.getNodeContent("sigma_gamma_p_model") == "reggeometry") {
             meson -> set_sigma_gamma_p_model (kREGGEOMETRY);
         }
@@ -113,7 +115,7 @@ int main (int argc, char **argv) {
 
         // line style settings
         f -> SetNpx(10000);
-        f -> SetLineWidth(2);
+        f -> SetLineWidth(1);
         f -> SetLineStyle(parser.getNodeContent("line_style").Atoi());
         f -> SetLineColor(parser.getNodeContent("line_color").Atoi());
         f -> Draw("same");
