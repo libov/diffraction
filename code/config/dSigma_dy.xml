@@ -58,6 +58,16 @@
   </plot>
 
   <plot>
+    <sigma_gamma_p_model>logarithmic</sigma_gamma_p_model>
+    <parameters>22 1</parameters>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} = 10 #times log(W)</legend_entry>
+    <process>pp</process>
+    <variable>y</variable>
+    <line_style>4</line_style>
+    <line_color>6</line_color>
+  </plot>
+
+  <plot>
     <sigma_gamma_p_model>reggeometry</sigma_gamma_p_model>
     <legend_entry>#sigma_{#gamma p#rightarrow V p} from eq.(2)</legend_entry>
     <process>pp</process>
