@@ -40,6 +40,7 @@ class TVectorMeson {
 
         // formulas
         Double_t    sigma_gamma_p_power_law             ( Double_t W );
+        Double_t    sigma_gamma_p_logarithmic           ( Double_t W );
         Double_t    sigma_gamma_p_reggeometry           ( Double_t W );
         Double_t    photon_energy                       ( Double_t rapidity );
         Double_t    W                                   ( Double_t _photon_energy );

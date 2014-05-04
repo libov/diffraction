@@ -53,6 +53,13 @@ Double_t TVectorMeson::sigma_gamma_p_power_law ( Double_t W ) {
     return ( a * pow(W/W0, delta) );
 }
 
+Double_t TVectorMeson::sigma_gamma_p_logarithmic ( Double_t W ) {
+    // sigma(gammap->Vp) = a nb *log(W/W0)
+    double a = fSigmaGammaPParameters[0];
+    double W0 = fSigmaGammaPParameters[1];
+    return ( a * log(W/W0) );
+}
+
 Double_t TVectorMeson::sigma_gamma_p_reggeometry ( Double_t W ) {
 
     double A0           = 29.8;
@@ -76,6 +83,7 @@ Double_t TVectorMeson::sigma_gamma_p_reggeometry ( Double_t W ) {
 
 Double_t TVectorMeson::sigma_gamma_p (Double_t *x, Double_t *par) {
     if ( fModel == kPOWERLAW ) return sigma_gamma_p_power_law(x[0]);
+    if ( fModel == kLOGARITHMIC ) return sigma_gamma_p_logarithmic(x[0]);
     if ( fModel == kREGGEOMETRY ) return sigma_gamma_p_reggeometry(x[0]);
 
     // if nothing better found...
