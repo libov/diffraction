@@ -10,7 +10,7 @@
   <cms_energy>7e3</cms_energy>
   <meson_type>jpsi</meson_type>
   <filename>dSigma_dy_full_rapidity_range.eps</filename>
-  <datafile></datafile>
+
   <x_axis>
     <title>Rapidity Y</title>
     <low_range>-7.7</low_range>

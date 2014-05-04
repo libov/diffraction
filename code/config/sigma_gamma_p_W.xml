@@ -10,7 +10,7 @@
   <cms_energy>7e3</cms_energy>
   <meson_type>jpsi</meson_type>
   <filename>sigma_gamma_p_W.eps</filename>
-  <datafile></datafile>
+
   <x_axis>
     <title>W [GeV]</title>
     <low_range>3.1</low_range>

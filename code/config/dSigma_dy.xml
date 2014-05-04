@@ -12,7 +12,6 @@
   <cms_energy>7e3</cms_energy>
   <meson_type>jpsi</meson_type>
   <filename>dSigma_dy.eps</filename>
-  <datafile></datafile>
 
   <x_axis>
     <title>Rapidity Y</title>
