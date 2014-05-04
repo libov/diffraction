@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <plot>
+
   <legend>
     <title>J/#psi at LHC, #sqrt{s}=7 TeV</title>
     <x1>0.375</x1>
@@ -7,16 +8,19 @@
     <x2>0.775</x2>
     <y2>0.4</y2>
   </legend>
+
   <cms_energy>7e3</cms_energy>
   <meson_type>jpsi</meson_type>
   <filename>dSigma_dy.eps</filename>
   <datafile></datafile>
+
   <x_axis>
     <title>Rapidity Y</title>
     <low_range>2.0</low_range>
     <up_range>4.5</up_range>
     <log>false</log>
   </x_axis>
+
   <y_axis>
     <title>d#sigma(pp #rightarrow pVp) / dY [nb]</title>
     <low_range>0</low_range>
@@ -70,5 +74,5 @@
        <marker_size>1</marker_size>
        <marker_color>1</marker_color>
    </dataplot>
-  
+
 </plot>
