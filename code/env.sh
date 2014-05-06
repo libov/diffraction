@@ -3,3 +3,4 @@
 
 # TXMLParser installation (headers + library)
 export TXMLPARSER=/home/vladyslav/git_repositories/TXMLParser
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TXMLPARSER/lib
