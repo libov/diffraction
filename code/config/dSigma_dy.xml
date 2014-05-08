@@ -12,6 +12,7 @@
   <cms_energy>7e3</cms_energy>
   <meson_type>jpsi</meson_type>
   <filename>dSigma_dy.eps</filename>
+  <perform_fit>false</perform_fit>
 
   <x_axis>
     <title>Rapidity Y</title>
@@ -35,6 +36,8 @@
     <variable>y</variable>
     <line_style>1</line_style>
     <line_color>2</line_color>
+    <use_in_the_fit>true</use_in_the_fit>
+    <fix_parameters>0 0 1</fix_parameters>
   </plot>
 
   <plot>
@@ -82,6 +85,7 @@
     <marker_style>21</marker_style>
     <marker_size>1</marker_size>
     <marker_color>1</marker_color>
+    <use_in_the_fit>true</use_in_the_fit>
   </dataplot>
 
 </plot>
