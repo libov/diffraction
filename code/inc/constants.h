@@ -14,7 +14,7 @@ const double PI             = TMath::Pi();
 const double ALPHA          = 1./137;
 
 const double S2GAP          = 0.8;
-        
+
 enum MesonType              { kJPSI, kPSI };
 enum sigma_gamma_p_model    { kPOWERLAW, kLOGARITHMIC, kREGGEOMETRY };
 enum process                { kGammaP, kPP};
