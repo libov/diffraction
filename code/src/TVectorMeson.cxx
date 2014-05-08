@@ -159,7 +159,8 @@ Double_t TVectorMeson::dSigma_dW (Double_t *x, Double_t *par) {
 }
 
 void TVectorMeson::set_sigma_gamma_p_model_parameters (Double_t * par, unsigned n) {
-    for (unsigned i=0; i<n; i++){
+    fNSigmaGammaPParameters = n;
+    for (unsigned i=0; i<fNSigmaGammaPParameters; i++) {
         fSigmaGammaPParameters[i] = par[i];
     }
 }
