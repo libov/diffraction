@@ -71,4 +71,6 @@ class TVectorMeson {
         Double_t            fSigmaGammaPParameters[99];
 };
 
+extern TVectorMeson *gTVectorMeson;
+
 #endif
