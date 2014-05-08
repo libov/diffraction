@@ -16,8 +16,8 @@ using namespace std;
 int main (int argc, char **argv) {
 
     // create TPlot object - inherits from TCanvas
-    TPlot instance;
-    instance.cd();
+    TPlot plot;
+    plot.cd();
 
     // create parser instance, pass the xml file name
     TString  xmlfilename = argv[1];
@@ -38,38 +38,41 @@ int main (int argc, char **argv) {
 
     // legend
     parser.selectNode("legend");
-    instance.set_legend_title(parser.getNodeContent("title"));
+    plot.set_legend_title(parser.getNodeContent("title"));
     double x1, x2, y1, y2;
     x1 = parser.getNodeContent("x1").Atof();
     x2 = parser.getNodeContent("x2").Atof();
     y1 = parser.getNodeContent("y1").Atof();
     y2 = parser.getNodeContent("y2").Atof();
-    instance.set_legend_coordinates(x1, y1, x2, y2);
+    plot.set_legend_coordinates(x1, y1, x2, y2);
 
     // x-axis
     parser.selectMainNode();
     parser.selectNode("x_axis");
-    instance.set_x_axis_title(parser.getNodeContent("title"));
+    plot.set_x_axis_title(parser.getNodeContent("title"));
     TString xlog = parser.getNodeContent("log");
-    if (xlog == "false") instance.set_log_x(false);
-    else if (xlog == "true") instance.set_log_x(true);
+    if (xlog == "false") plot.set_log_x(false);
+    else if (xlog == "true") plot.set_log_x(true);
     double x_low_range = parser.getNodeContent("low_range").Atof();
     double x_up_range = parser.getNodeContent("up_range").Atof();
-    instance.set_x_axis_range(x_low_range, x_up_range);
+    plot.set_x_axis_range(x_low_range, x_up_range);
 
     // y-axis
     parser.selectMainNode();
     parser.selectNode("y_axis");
-    instance.set_y_axis_title(parser.getNodeContent("title"));
+    plot.set_y_axis_title(parser.getNodeContent("title"));
     TString ylog = parser.getNodeContent("log");
-    if (ylog == "false") instance.set_log_y(false);
-    else if (ylog == "true") instance.set_log_y(true);
+    if (ylog == "false") plot.set_log_y(false);
+    else if (ylog == "true") plot.set_log_y(true);
     double y_low_range = parser.getNodeContent("low_range").Atof();
     double y_up_range = parser.getNodeContent("up_range").Atof();
-    instance.set_y_axis_range(y_low_range, y_up_range);
+    plot.set_y_axis_range(y_low_range, y_up_range);
+
+    //check if want to fit
+    parser.selectMainNode();
 
     // creates dummy histo, legend, applies settings
-    instance.Initialise();
+    plot.Initialise();
 
     // perform plotting - loop over plot tags, create TF1 object and draw it (canvas was selected above)
     parser.selectMainNode();
@@ -120,7 +123,7 @@ int main (int argc, char **argv) {
         f -> SetLineColor(parser.getNodeContent("line_color").Atoi());
         f -> Draw("same");
 
-        instance.get_legend() -> AddEntry(f, parser.getNodeContent("legend_entry"), "l");
+        plot.get_legend() -> AddEntry(f, parser.getNodeContent("legend_entry"), "l");
 
         parser.selectNextNode("plot");
     }
@@ -178,14 +181,14 @@ int main (int argc, char **argv) {
         g -> SetMarkerStyle(parser.getNodeContent("marker_style").Atoi());
         g -> Draw("p");
 
-        instance.get_legend() -> AddEntry(g, parser.getNodeContent("legend_entry"), "p");
+        plot.get_legend() -> AddEntry(g, parser.getNodeContent("legend_entry"), "p");
 
         parser.selectNextNode("dataplot");
     }
 
     // print to file
     parser.selectMainNode();
-    instance.Print("../plots/" + parser.getNodeContent("filename"));
+    plot.Print("../plots/" + parser.getNodeContent("filename"));
 
     // done
     return 0;
