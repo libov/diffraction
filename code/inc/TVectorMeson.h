@@ -31,6 +31,7 @@ class TVectorMeson {
 
         // getters
         Double_t    get_cms_energy ()                       { return fCMSEnergy;   }
+        unsigned    get_n_sigma_gamma_p_model_parameters()  { return fNSigmaGammaPParameters; }
 
         // initialiser
         void        Initialise();
@@ -69,6 +70,7 @@ class TVectorMeson {
         Double_t            fWmin;
         Double_t            fWmax;
         Double_t            fSigmaGammaPParameters[99];
+        unsigned            fNSigmaGammaPParameters;
 };
 
 extern TVectorMeson *gTVectorMeson;
