@@ -24,8 +24,11 @@ TVectorMeson.o: TVectorMeson.cxx TVectorMeson.h
 TPlot.o: TPlot.cxx TPlot.h
 	gcc -o $(OBJ)/$@ -c $< -I inc/ $(FLAGS_OBJ)
 
-plots.exe: plots.o TVectorMeson.o TPlot.o
-	gcc -o plots.exe $(OBJ)/plots.o $(OBJ)/TVectorMeson.o $(OBJ)/TPlot.o $(FLAGS) -lMinuit -lstdc++ -lMLP -lXMLIO -lTXMLParser -L$(TXMLPARSER)/lib
+TFitter.o: TFitter.cxx TFitter.h
+	gcc -o $(OBJ)/$@ -c $< -I inc/ $(FLAGS_OBJ)
+
+plots.exe: plots.o TVectorMeson.o TPlot.o TFitter.o
+	gcc -o plots.exe $(OBJ)/plots.o $(OBJ)/TVectorMeson.o $(OBJ)/TPlot.o $(OBJ)/TFitter.o $(FLAGS) -lMinuit -lstdc++ -lMLP -lXMLIO -lTXMLParser -L$(TXMLPARSER)/lib
 
 .PHONY: clean
 clean:
