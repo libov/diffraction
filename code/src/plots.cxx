@@ -7,17 +7,28 @@
 #include <TPlot.h>
 #include <TVectorMeson.h>
 #include <TXMLParser.h>
+#include <TFitter.h>
 #include <constants.h>
 
 #include <iostream>
 #include <fstream>
 using namespace std;
 
+TVectorMeson *gTVectorMeson;
+
+void minimization_function(Int_t& npar, Double_t* grad, Double_t& f, Double_t par[], Int_t iflag) {
+    gTVectorMeson -> set_sigma_gamma_p_model_parameters(par, gTVectorMeson -> get_n_sigma_gamma_p_model_parameters() );
+    f = gTFitter -> chi2();
+}
+
 int main (int argc, char **argv) {
 
     // create TPlot object - inherits from TCanvas
     TPlot plot;
     plot.cd();
+
+    // create TFitter object - if the fit is requested in the xml file
+    TFitter fitter(minimization_function);
 
     // create parser instance, pass the xml file name
     TString  xmlfilename = argv[1];
@@ -125,6 +136,20 @@ int main (int argc, char **argv) {
 
         plot.get_legend() -> AddEntry(f, parser.getNodeContent("legend_entry"), "l");
 
+        // if this is a fit function
+        if (parser.getNodeContent("use_in_the_fit") == "true") {
+            fitter.set_fit_function(f);
+            gTVectorMeson = meson;
+            for (int i=0; i < tokens -> GetEntries(); i++) {
+                fitter.DefineParameter(i, "", par[i], 0.1, 0, 0);
+            }
+            TString fixpar_str = parser.getNodeContent("fix_parameters");
+            TObjArray * tokens = fixpar_str.Tokenize(" ");
+            for (int i=0; i<tokens -> GetEntries(); i++) {
+               if (((TObjString*)tokens->At(i)) -> GetString().Atof()) fitter.FixParameter(i);
+            }
+        }
+
         parser.selectNextNode("plot");
     }
 
@@ -183,12 +208,28 @@ int main (int argc, char **argv) {
 
         plot.get_legend() -> AddEntry(g, parser.getNodeContent("legend_entry"), "p");
 
+        // if want to use these data in the fitter
+        if (parser.getNodeContent("use_in_the_fit") == "true") fitter.set_data(npoints, y, sigma, y_err, sigma_err);
+
         parser.selectNextNode("dataplot");
     }
 
     // print to file
     parser.selectMainNode();
     plot.Print("../plots/" + parser.getNodeContent("filename"));
+
+    // fit
+    parser.selectMainNode();
+    if ( parser.getNodeContent("perform_fit") == "true" ) {
+
+        // run Minuit commands
+        fitter.Command("MIGRAD");
+        fitter.Command("HESSE");
+        fitter.Command("MINOS");
+
+        // print to eps
+        plot.Print("../plots/fitted_" + parser.getNodeContent("filename"));
+    }
 
     // done
     return 0;
