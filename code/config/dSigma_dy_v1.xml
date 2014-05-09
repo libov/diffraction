@@ -42,22 +42,12 @@
 
   <plot>
     <sigma_gamma_p_model>powerlaw</sigma_gamma_p_model>
-    <parameters>8 0.5 1</parameters>
-    <legend_entry>#sigma_{#gamma p#rightarrow V p} = 8 #times W^{0.5}</legend_entry>
+    <parameters>1.64179e+01 3.66651e-01 1</parameters>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} = 16.4 #times W^{0.37}</legend_entry>
     <process>pp</process>
     <variable>y</variable>
     <line_style>2</line_style>
     <line_color>3</line_color>
-  </plot>
-
-  <plot>
-    <sigma_gamma_p_model>powerlaw</sigma_gamma_p_model>
-    <parameters>25 0.3 1</parameters>
-    <legend_entry>#sigma_{#gamma p#rightarrow V p} = 25 #times W^{0.3}</legend_entry>
-    <process>pp</process>
-    <variable>y</variable>
-    <line_style>4</line_style>
-    <line_color>5</line_color>
   </plot>
 
   <plot>
