@@ -11,7 +11,7 @@
 
   <cms_energy>7e3</cms_energy>
   <meson_type>jpsi</meson_type>
-  <filename>dSigma_dy.eps</filename>
+  <filename>dSigma_dy_v1.eps</filename>
   <perform_fit>false</perform_fit>
 
   <x_axis>
