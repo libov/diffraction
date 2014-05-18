@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <plot>
   <legend>
-    <title>J/#Psi at LHC, #sqrt{s}=7 TeV</title>
+    <title>J/#psi at LHC, #sqrt{s}=7 TeV</title>
     <x1>0.45</x1>
     <y1>0.15</y1>
     <x2>0.85</x2>
@@ -26,6 +26,7 @@
 
   <plot>
     <sigma_gamma_p_model>powerlaw</sigma_gamma_p_model>
+    <parameters>1.5 0.8 1</parameters>
     <legend_entry>#sigma_{#gamma p#rightarrow V p} #propto W^{0.8}</legend_entry>
     <process>gammap</process>
     <variable>w</variable>
