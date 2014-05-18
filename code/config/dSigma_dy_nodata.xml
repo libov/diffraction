@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <plot>
   <legend>
-    <title>J/#Psi at LHC, #sqrt{s}=7 TeV</title>
+    <title>J/#psi at LHC, #sqrt{s}=7 TeV</title>
     <x1>0.375</x1>
     <y1>0.15</y1>
     <x2>0.775</x2>
