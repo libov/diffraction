@@ -59,5 +59,12 @@
     <marker_color>1</marker_color>
   </dataplot>
 
-  
+  <dataplot>
+    <filename>../data/zeus_0201043_jpsi_ee.txt</filename>
+    <legend_entry>ZEUS</legend_entry>
+    <marker_style>22</marker_style>
+    <marker_size>1</marker_size>
+    <marker_color>2</marker_color>
+  </dataplot>
+
 </plot>
