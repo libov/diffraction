@@ -183,7 +183,8 @@ int main (int argc, char **argv) {
             TString line_str = line;
             TObjArray * tokens = line_str.Tokenize(" ");
 
-            if (tokens -> GetEntries() == 0) continue;
+            unsigned nentries = tokens -> GetEntries();
+            if ( nentries == 0) continue;
 
             // check if this line is a comment
             TString first_word = ((TObjString*)tokens->At(0)) -> GetString();
