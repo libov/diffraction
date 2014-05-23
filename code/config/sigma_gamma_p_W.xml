@@ -5,7 +5,7 @@
     <x1>0.45</x1>
     <y1>0.15</y1>
     <x2>0.85</x2>
-    <y2>0.4</y2>
+    <y2>0.5</y2>
   </legend>
   <cms_energy>7e3</cms_energy>
   <meson_type>jpsi</meson_type>
@@ -61,10 +61,18 @@
 
   <dataplot>
     <filename>../data/zeus_0201043_jpsi_ee.txt</filename>
-    <legend_entry>ZEUS</legend_entry>
-    <marker_style>22</marker_style>
-    <marker_size>1</marker_size>
-    <marker_color>2</marker_color>
+    <legend_entry>ZEUS 38 pb^{-1} J/#psi #rightarrow e^{+}e^{-} </legend_entry>
+    <marker_style>20</marker_style>
+    <marker_size>0.6</marker_size>
+    <marker_color>4</marker_color>
+  </dataplot>
+
+  <dataplot>
+    <filename>../data/zeus_0201043_jpsi_mumu.txt</filename>
+    <legend_entry>ZEUS 55 pb^{-1} J/#psi #rightarrow #mu^{+}#mu^{-} </legend_entry>
+    <marker_style>20</marker_style>
+    <marker_size>0.6</marker_size>
+    <marker_color>6</marker_color>
   </dataplot>
 
 </plot>
