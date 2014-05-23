@@ -168,7 +168,7 @@ int main (int argc, char **argv) {
         Double_t y[99];
         Double_t y_err[99];
         Double_t sigma[99];
-        Double_t sigma_err[99];
+        Double_t sigma_stat_err[99];
         unsigned npoints = 0;
 
         string line;
@@ -194,23 +194,23 @@ int main (int argc, char **argv) {
             y[npoints] = ((TObjString*)tokens->At(0)) -> GetString().Atof();
             y_err[npoints] = 0;
             sigma[npoints] = ((TObjString*)tokens->At(1)) -> GetString().Atof();
-            sigma_err[npoints] = ((TObjString*)tokens->At(2)) -> GetString().Atof();
+            sigma_stat_err[npoints] = ((TObjString*)tokens->At(2)) -> GetString().Atof();
 
             npoints++;
         }
         cout << "INFO: npoints= " << npoints << endl;
         for (unsigned i=0;i<npoints; i++){
-            cout << y[i] << " " << sigma[i] << " " << sigma_err[i] << endl;
+            cout << y[i] << " " << sigma[i] << " " << sigma_stat_err[i] << endl;
         }
 
-        TGraphErrors * g = new TGraphErrors(npoints, y, sigma, y_err, sigma_err);
+        TGraphErrors * g = new TGraphErrors(npoints, y, sigma, y_err, sigma_stat_err);
         g -> SetMarkerStyle(parser.getNodeContent("marker_style").Atoi());
         g -> Draw("p");
 
         plot.get_legend() -> AddEntry(g, parser.getNodeContent("legend_entry"), "p");
 
         // if want to use these data in the fitter
-        if (parser.getNodeContent("use_in_the_fit") == "true") fitter.set_data(npoints, y, sigma, y_err, sigma_err);
+        if (parser.getNodeContent("use_in_the_fit") == "true") fitter.set_data(npoints, y, sigma, y_err, sigma_stat_err);
 
         parser.selectNextNode("dataplot");
     }
