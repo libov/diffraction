@@ -3,6 +3,7 @@
 #include <TObjString.h>
 #include <TF1.h>
 #include <TGraphErrors.h>
+#include <TGraphAsymmErrors.h>
 
 #include <TPlot.h>
 #include <TVectorMeson.h>
@@ -166,10 +167,14 @@ int main (int argc, char **argv) {
         }
 
         Double_t y[99];
-        Double_t y_err[99];
         Double_t sigma[99];
         Double_t sigma_stat_err[99];
+        Double_t sigma_tot_up[99];
+        Double_t sigma_tot_down[99];
+        Double_t zeros[99];
         unsigned npoints = 0;
+        bool     systematics_given = false;
+        for (unsigned i=0; i<99; i++) zeros[i] = 0;
 
         string line;
         while ( f.good() ) {
@@ -192,25 +197,55 @@ int main (int argc, char **argv) {
             if (first_char=='#') continue;
 
             y[npoints] = ((TObjString*)tokens->At(0)) -> GetString().Atof();
-            y_err[npoints] = 0;
             sigma[npoints] = ((TObjString*)tokens->At(1)) -> GetString().Atof();
             sigma_stat_err[npoints] = ((TObjString*)tokens->At(2)) -> GetString().Atof();
+            sigma_tot_up[npoints] = sigma_stat_err[npoints];
+            sigma_tot_down[npoints] = sigma_stat_err[npoints];
+
+            //if systematic uncertainties are also given
+            if ( nentries == 5) {
+                systematics_given = true;
+                Double_t unc1 = ((TObjString*)tokens->At(3)) -> GetString().Atof();
+                Double_t unc2 = ((TObjString*)tokens->At(4)) -> GetString().Atof();
+                Double_t unc_up, unc_down;
+                if ( (unc1>=0) && (unc2<=0) ) {
+                    unc_up = unc1;
+                    unc_down = unc2;
+                } else if ( (unc1<=0) && (unc2>=0) ) {
+                    unc_up = unc2;
+                    unc_down = unc1;
+                } else {
+                    cout << "ERROR: both systematic uncertainties are of same sign! " << endl;
+                    abort();
+                }
+                sigma_tot_up[npoints]   = sqrt( pow(unc_up,2) + pow(sigma_stat_err[npoints],2) );
+                sigma_tot_down[npoints] = sqrt( pow(unc_down,2) + pow(sigma_stat_err[npoints],2) );
+            }
 
             npoints++;
         }
         cout << "INFO: npoints= " << npoints << endl;
         for (unsigned i=0;i<npoints; i++){
-            cout << y[i] << " " << sigma[i] << " " << sigma_stat_err[i] << endl;
+            cout << y[i] << " " << sigma[i] << " " << sigma_stat_err[i] << " +"<<sigma_tot_up[i] << " -" << sigma_tot_down[i] << endl;
         }
 
-        TGraphErrors * g = new TGraphErrors(npoints, y, sigma, y_err, sigma_stat_err);
-        g -> SetMarkerStyle(parser.getNodeContent("marker_style").Atoi());
-        g -> Draw("p");
+        if (systematics_given) {
+            TGraphErrors * gstat = new TGraphErrors(npoints, y, sigma, zeros, sigma_stat_err);
+            gstat -> SetLineColor(parser.getNodeContent("marker_color").Atoi());
+            gstat -> Draw("||");
+        }
 
-        plot.get_legend() -> AddEntry(g, parser.getNodeContent("legend_entry"), "p");
+        TGraphAsymmErrors * gtot = new TGraphAsymmErrors(npoints, y, sigma, zeros, zeros, sigma_tot_down, sigma_tot_up);
+        gtot -> SetMarkerStyle(parser.getNodeContent("marker_style").Atoi());
+        gtot -> SetMarkerSize(parser.getNodeContent("marker_size").Atof());
+        gtot -> SetMarkerColor(parser.getNodeContent("marker_color").Atoi());
+        gtot -> SetLineColor(parser.getNodeContent("marker_color").Atoi());
+        gtot -> Draw("pz");
+
+        plot.get_legend() -> AddEntry(gtot, parser.getNodeContent("legend_entry"), "p");
 
         // if want to use these data in the fitter
-        if (parser.getNodeContent("use_in_the_fit") == "true") fitter.set_data(npoints, y, sigma, y_err, sigma_stat_err);
+        if (parser.getNodeContent("use_in_the_fit") == "true") fitter.set_data(npoints, y, sigma, zeros, sigma_stat_err);
 
         parser.selectNextNode("dataplot");
     }
