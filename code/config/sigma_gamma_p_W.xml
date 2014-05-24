@@ -61,7 +61,7 @@
 
   <dataplot>
     <filename>../data/zeus_0201043_jpsi_ee.txt</filename>
-    <legend_entry>ZEUS 38 pb^{-1} J/#psi #rightarrow e^{+}e^{-} </legend_entry>
+    <legend_entry>ZEUS 38 pb^{-1}</legend_entry>
     <marker_style>20</marker_style>
     <marker_size>0.6</marker_size>
     <marker_color>4</marker_color>
@@ -69,10 +69,27 @@
 
   <dataplot>
     <filename>../data/zeus_0201043_jpsi_mumu.txt</filename>
-    <legend_entry>ZEUS 55 pb^{-1} J/#psi #rightarrow #mu^{+}#mu^{-} </legend_entry>
+    <legend_entry>ZEUS 55 pb^{-1}</legend_entry>
     <marker_style>20</marker_style>
     <marker_size>0.6</marker_size>
     <marker_color>6</marker_color>
   </dataplot>
+
+  <dataplot>
+    <filename>../data/h1_0510016_jpsi.txt</filename>
+    <legend_entry>H1 55 pb^{-1}</legend_entry>
+    <marker_style>20</marker_style>
+    <marker_size>0.6</marker_size>
+    <marker_color>7</marker_color>
+  </dataplot>
+
+  <dataplot>
+    <filename>../data/h1_1304.5162_jpsi.txt</filename>
+    <legend_entry>H1 140.8 pb^{-1}</legend_entry>
+    <marker_style>20</marker_style>
+    <marker_size>0.6</marker_size>
+    <marker_color>8</marker_color>
+  </dataplot>
+
 
 </plot>
