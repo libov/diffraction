@@ -2,10 +2,10 @@
 <plot>
   <legend>
     <title>J/#psi at LHC, #sqrt{s}=7 TeV</title>
-    <x1>0.45</x1>
-    <y1>0.15</y1>
-    <x2>0.85</x2>
-    <y2>0.5</y2>
+    <x1>0.5</x1>
+    <y1>0.12</y1>
+    <x2>0.87</x2>
+    <y2>0.6</y2>
   </legend>
   <cms_energy>7e3</cms_energy>
   <meson_type>jpsi</meson_type>
@@ -43,17 +43,39 @@
     <line_color>4</line_color>
   </plot>
 
+  <plot>
+    <sigma_gamma_p_model>logarithmic</sigma_gamma_p_model>
+    <parameters>22 1</parameters>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} = 10 #times log(W)</legend_entry>
+    <process>gammap</process>
+    <variable>w</variable>
+    <line_style>4</line_style>
+    <line_color>6</line_color>
+  </plot>
+
+
+  <plot>
+    <sigma_gamma_p_model>powerlaw</sigma_gamma_p_model>
+    <parameters>1.64179e+01 3.66651e-01 1</parameters>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} = 16.4 #times W^{0.37}</legend_entry>
+    <process>gammap</process>
+    <variable>w</variable>
+    <line_style>2</line_style>
+    <line_color>3</line_color>
+  </plot>
+
+
   <dataplot>
-    <filename>../data/lhcb_sigwexp_wplus.txt</filename>
-    <legend_entry>LHCb 36 pb^{-1} (W^{+} solutions)</legend_entry>
+    <filename>../data/lhcb2014_sigwexp_wplus.txt</filename>
+    <legend_entry>LHCb 930 pb^{-1} (W^{+} solutions)</legend_entry>
     <marker_style>20</marker_style>
     <marker_size>1</marker_size>
     <marker_color>1</marker_color>
   </dataplot>
 
     <dataplot>
-    <filename>../data/lhcb_sigwexp_wminus.txt</filename>
-    <legend_entry>LHCb 36 pb^{-1} (W^{-} solutions)</legend_entry>
+    <filename>../data/lhcb2014_sigwexp_wminus.txt</filename>
+    <legend_entry>LHCb 930 pb^{-1} (W^{-} solutions)</legend_entry>
     <marker_style>21</marker_style>
     <marker_size>1</marker_size>
     <marker_color>1</marker_color>
