@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <plot>
+
   <legend>
     <title>J/#psi at LHC, #sqrt{s}=7 TeV</title>
     <x1>0.5</x1>
@@ -7,8 +8,11 @@
     <x2>0.87</x2>
     <y2>0.6</y2>
   </legend>
+
   <cms_energy>7e3</cms_energy>
+
   <meson_type>jpsi</meson_type>
+
   <filename>sigma_gamma_p_W.eps</filename>
 
   <x_axis>
@@ -17,6 +21,7 @@
     <up_range>7e3</up_range>
     <log>true</log>
   </x_axis>
+
   <y_axis>
     <title>d#sigma(#gamma p #rightarrow Vp) [nb]</title>
     <low_range>1</low_range>
@@ -53,7 +58,6 @@
     <line_color>6</line_color>
   </plot>
 
-
   <plot>
     <sigma_gamma_p_model>powerlaw</sigma_gamma_p_model>
     <parameters>1.64179e+01 3.66651e-01 1</parameters>
@@ -63,7 +67,6 @@
     <line_style>2</line_style>
     <line_color>3</line_color>
   </plot>
-
 
   <dataplot>
     <filename>../data/lhcb2014_sigwexp_wplus.txt</filename>
@@ -112,6 +115,5 @@
     <marker_size>0.6</marker_size>
     <marker_color>8</marker_color>
   </dataplot>
-
 
 </plot>
