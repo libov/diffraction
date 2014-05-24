@@ -73,7 +73,7 @@
     <marker_color>1</marker_color>
   </dataplot>
 
-   <dataplot>
+  <dataplot>
     <filename>../data/lhcb2014_sigwexp_wminus.txt</filename>
     <legend_entry>LHCb 930 pb^{-1} (W^{-} solutions)</legend_entry>
     <marker_style>21</marker_style>
