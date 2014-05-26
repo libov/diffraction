@@ -4,5 +4,3 @@
 *.log
 *.dvi
 *eps-converted-to.pdf
-code/*.eps
-draft/vmp.pdf
