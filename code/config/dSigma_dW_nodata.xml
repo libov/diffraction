@@ -3,13 +3,13 @@
   <legend>
     <title>J/#psi at LHC, #sqrt{s}=7 TeV</title>
     <x1>0.45</x1>
-    <y1>0.15</y1>
+    <y1>0.25</y1>
     <x2>0.85</x2>
-    <y2>0.4</y2>
+    <y2>0.5</y2>
   </legend>
   <cms_energy>7e3</cms_energy>
   <meson_type>jpsi</meson_type>
-  <filename>sigma_gamma_p_W.eps</filename>
+  <filename>dsigma_dW_nodata.eps</filename>
 
   <x_axis>
     <title>W [GeV]</title>
