@@ -11,7 +11,7 @@
 
   <cms_energy>7e3</cms_energy>
   <meson_type>jpsi</meson_type>
-  <filename>dSigma_dy_comparison.eps</filename>
+  <filename>dSigma_dy.eps</filename>
   <perform_fit>false</perform_fit>
 
   <x_axis>
@@ -22,7 +22,7 @@
   </x_axis>
 
   <y_axis>
-    <title>d#sigma(pp #rightarrow pVp) / dY [nb]</title>
+    <title>d#sigma(pp #rightarrow p J/#psi p) / dY [nb]</title>
     <low_range>0</low_range>
     <up_range>6</up_range>
     <log>false</log>
@@ -62,7 +62,7 @@
 
   <plot>
     <sigma_gamma_p_model>reggeometry</sigma_gamma_p_model>
-    <legend_entry>#sigma_{#gamma p#rightarrow V p} from eq.(2)</legend_entry>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} from eq.(6)</legend_entry>
     <process>pp</process>
     <variable>y</variable>
     <line_style>3</line_style>
