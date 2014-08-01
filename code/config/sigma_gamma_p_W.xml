@@ -23,7 +23,7 @@
   </x_axis>
 
   <y_axis>
-    <title>d#sigma(#gamma p #rightarrow Vp) [nb]</title>
+    <title>#sigma(#gamma p #rightarrow J/#psi p) [nb]</title>
     <low_range>1</low_range>
     <up_range>1000</up_range>
     <log>true</log>
@@ -32,7 +32,7 @@
   <plot>
     <sigma_gamma_p_model>powerlaw</sigma_gamma_p_model>
     <parameters>1.5 0.8 1</parameters>
-    <legend_entry>#sigma_{#gamma p#rightarrow V p} #propto W^{0.8}</legend_entry>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} = 1.5 #times W^{0.8}</legend_entry>
     <process>gammap</process>
     <variable>w</variable>
     <line_style>1</line_style>
@@ -41,7 +41,7 @@
 
   <plot>
     <sigma_gamma_p_model>reggeometry</sigma_gamma_p_model>
-    <legend_entry>#sigma_{#gamma p#rightarrow V p} from eq.(2)</legend_entry>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} from eq.(6)</legend_entry>
     <process>gammap</process>
     <variable>w</variable>
     <line_style>3</line_style>
