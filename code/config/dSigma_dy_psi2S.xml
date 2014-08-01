@@ -22,7 +22,7 @@
   </x_axis>
 
   <y_axis>
-    <title>d#sigma(pp #rightarrow pVp) / dY [nb]</title>
+    <title>d#sigma(pp #rightarrow p #Psi(2S) p) / dY [nb]</title>
     <low_range>0</low_range>
     <up_range>1.2</up_range>
     <log>false</log>
