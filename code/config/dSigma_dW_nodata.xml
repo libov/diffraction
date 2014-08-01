@@ -9,7 +9,7 @@
   </legend>
   <cms_energy>7e3</cms_energy>
   <meson_type>jpsi</meson_type>
-  <filename>dsigma_dW_nodata.eps</filename>
+  <filename>dSigma_dW_nodata.eps</filename>
 
   <x_axis>
     <title>W [GeV]</title>
@@ -18,7 +18,7 @@
     <log>true</log>
   </x_axis>
   <y_axis>
-    <title>d#sigma(#gamma p #rightarrow Vp) [nb]</title>
+    <title>d#sigma(pp #rightarrow p J/#psi p) / dW [nb/GeV]</title>
     <low_range>0</low_range>
     <up_range>0.4</up_range>
     <log>false</log>
@@ -27,7 +27,7 @@
   <plot>
     <sigma_gamma_p_model>powerlaw</sigma_gamma_p_model>
     <parameters>1.5 0.8 1</parameters>
-    <legend_entry>#sigma_{#gamma p#rightarrow V p} #propto W^{0.8}</legend_entry>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} = 1.5 #times W^{0.8}</legend_entry>
     <process>pp</process>
     <variable>w</variable>
     <line_style>1</line_style>
@@ -36,7 +36,7 @@
 
   <plot>
     <sigma_gamma_p_model>reggeometry</sigma_gamma_p_model>
-    <legend_entry>#sigma_{#gamma p#rightarrow V p} from eq.(2)</legend_entry>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} from eq.(6)</legend_entry>
     <process>pp</process>
     <variable>w</variable>
     <line_style>3</line_style>
