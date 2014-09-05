@@ -80,7 +80,6 @@ int main (int argc, char **argv) {
     double y_up_range = parser.getNodeContent("up_range").Atof();
     plot.set_y_axis_range(y_low_range, y_up_range);
 
-    //check if want to fit
     parser.selectMainNode();
 
     // creates dummy histo, legend, applies settings
