@@ -28,7 +28,7 @@ int main (int argc, char **argv) {
     TPlot plot;
     plot.cd();
 
-    // create TFitter object - if the fit is requested in the xml file
+    // create TFitter object - needed for the fit (if requested in the xml file)
     TFitter fitter(minimization_function);
 
     // create parser instance, pass the xml file name
