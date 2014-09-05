@@ -117,7 +117,7 @@ int main (int argc, char **argv) {
 
         TString par_str = parser.getNodeContent("parameters");
         TObjArray * tokens = par_str.Tokenize(" ");
-        Double_t            par[99];
+        Double_t par[99];
         for (int i=0; i<tokens -> GetEntries(); i++) {
             par[i] = ((TObjString*)tokens->At(i)) -> GetString().Atof();
         }
