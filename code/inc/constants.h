@@ -18,6 +18,6 @@ const double S2GAP          = 0.8;
 enum MesonType              { kJPSI, kPSI };
 enum sigma_gamma_p_model    { kPOWERLAW, kLOGARITHMIC, kREGGEOMETRY };
 enum process                { kGammaP, kPP};
-enum variable               { kY, kW }; 
+enum variable               { kY, kW };
 
 #endif
