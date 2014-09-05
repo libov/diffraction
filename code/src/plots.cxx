@@ -82,7 +82,7 @@ int main (int argc, char **argv) {
 
     parser.selectMainNode();
 
-    // creates dummy histo, legend, applies settings
+    // creates dummy histo, legend and applies the settings
     plot.Initialise();
 
     // perform plotting - loop over plot tags, create TF1 object and draw it (canvas was selected above)
