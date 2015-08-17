@@ -1,0 +1,20 @@
+Friday, 20 March 2015
+Oleg,Slava
+
+General discussion
+=========================
+-> single dissociation - was already published (Oleg et al) - what would be the goal to continue? Perhaps new data from LHC, parameter fits.
+-> double dissociatoin - similar story (Salii et al)
+-> central production - would be new for us, but need to define what the novelty is. Perhaps Laszlo's amplitude?
+
+Next steps
+==========
+-> General proposal: concentrate on CDP first
+-> Define more clearly the goals. What observables, which sets of data. Is there any data from LHC on CDP? Check with Laszlo (fancy amplitude we could use?)
+-> check formulas
+-> merge two software packages (Olegs and Slavas) so that there is one common tool to use. Use git server so everyone can track changes and use latest software easily
+-> clarify what reggevako means
+
+Next meeting
+============
+Tuesday 24 March 2015
