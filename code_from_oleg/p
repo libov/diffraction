@@ -1,0 +1,23 @@
+#!/bin/sh
+
+SOURCE=fit_trajectory.cxx
+EXE=exeDD
+
+if [ "$1" ]
+then
+ SOURCE="$1"
+ EXE="$1.exe"
+fi
+
+echo compiling $EXE
+rm -f $EXE *.o
+
+echo "g++ -o $EXE $SOURCE `root-config --cflags` `root-config --libs` `gsl-config --libs` -lMinuit -lMathMore"
+g++ -o $EXE $SOURCE `root-config --cflags` `root-config --libs` `gsl-config --libs` -lMinuit -lMathMore
+
+rm -f log_$EXE err_log_$EXE
+
+./$EXE $2 > log_$EXE 2> err_log_$EXE  &
+tail -f err_log_$EXE
+#exit 0
+#readme
