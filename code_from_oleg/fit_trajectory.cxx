@@ -7,7 +7,7 @@ using namespace std;
 #ifndef __CINT__
 //#include "Math/SpecFuncMathCore.h"
 //#include "Math/SpecFuncMathMore.h"
-
+#include "mathmore/inc/Math/SpecFuncMathMore.h"
 #include "Math/SpecFunc.h"
 #endif 
 
