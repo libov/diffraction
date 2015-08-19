@@ -18,5 +18,3 @@ rm -f log_$EXE err_log_$EXE
 
 ./$EXE $2 > log_$EXE 2> err_log_$EXE  &
 tail -f err_log_$EXE
-#exit 0
-#readme
