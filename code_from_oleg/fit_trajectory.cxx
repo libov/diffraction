@@ -5,14 +5,10 @@ using namespace std;
 #include <TSystem.h>
 #include <TMath.h>
 #ifndef __CINT__
-//#include "Math/SpecFuncMathCore.h"
-//#include "Math/SpecFuncMathMore.h"
-#include "mathmore/inc/Math/SpecFuncMathMore.h"
-#include "Math/SpecFunc.h"
+#include "Math/SpecFuncMathCore.h"
+#include "Math/SpecFuncMathMore.h"
 #endif 
 
-//#include <gsl/gsl_sf_hyperg.h>
-//#include "Math/SpecFunc.h"
 #include <TH1F.h>
 #include <TDatime.h>
 #include <TF1.h>
