@@ -12,9 +12,8 @@ fi
 echo compiling $EXE
 rm -f $EXE *.o
 
-g++ -o $EXE $SOURCE `root-config --cflags` `root-config --libs` -L$ROOTSYS/lib `gsl-config --libs` -lMinuit -lMathMore -I$ROOTSYS/math -I$ROOTSYS/include
+gcc -o $EXE.o -c $SOURCE `root-config --cflags`
+gcc -o $EXE $EXE.o `root-config --cflags` `root-config --libs` -L$ROOTSYS/lib `gsl-config --libs` -lMinuit -lMathMore -lstdc++
 
-rm -f log_$EXE err_log_$EXE
-
-./$EXE $2 > log_$EXE 2> err_log_$EXE  &
-tail -f err_log_$EXE
+echo running $EXE 
+./$EXE 
