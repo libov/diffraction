@@ -400,16 +400,13 @@ Double_t dsigmael_dt(Double_t t, Double_t s)
   return res;
 }
 
-Double_t elastic_vertex(Double_t t)
-{
+Double_t elastic_vertex(Double_t t) {
   return TMath::Exp(5*t);
 }
 
-Double_t alpha_t(Double_t t)
-{
+Double_t alpha_t(Double_t t) {
   return 1.01+0.25*t;
 }
-
 
 Double_t Re_alpha(Double_t s, Double_t* par, Double_t* lambda_par)
 {
