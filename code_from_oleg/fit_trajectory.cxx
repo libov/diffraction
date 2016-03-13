@@ -634,17 +634,14 @@ Double_t Im_Amplitude(Double_t s, Double_t t, Double_t* par, Double_t* lambda, B
   return ImA;
 }
 
-Double_t elastic_form_factor(Double_t t)
-{
+Double_t elastic_form_factor(Double_t t) {
   return TMath::Power(1.-t/0.71, -2);
 }
 
-Double_t Risto_form_factor(Double_t t)
-{
+Double_t Risto_form_factor(Double_t t) {
   Double_t b = 10.;
   return TMath::Exp(b*t);
 }
-
 
 Double_t DD_cross_mod(Double_t s, Double_t t, Double_t M2, Double_t* par, Double_t* lambda, Bool_t include_Roper, Double_t norm, Double_t norm_Roper,
 		  Int_t include_bg_jenk, Double_t par_jenk[])
