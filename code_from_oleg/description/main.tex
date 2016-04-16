@@ -19,8 +19,14 @@
 \vskip 1cm
 
 \section{Double-differential cross-section of SDD as a function of $M_X^2$ for fixed $t$}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.8\textwidth]{figures/SDD.eps}
+\caption{Double-differential SDD cross-section.}
+\label{fig:diagrams}
+\end{figure}
 This is similar to what is shown in Fig.8 of~\cite{Jenkovszky11}.
-The cross-section reads
+The cross-section implemented in the code reads:
 $$
 \frac{d^2\sigma}{dt dM_X^2}=\frac{1}{(1. - t/0.71)^4} \left(\frac{s}{M_X^2}\right)^{2(1.08 + 0.25t) - 2} \sigma_{PpN}(M_X^2,t) KF(x,t,M_X^2)
 $$
@@ -55,12 +61,7 @@ $$
 KF(x,t,M_X^2) = \frac{x (1-x)^2}{\left(1 - 4m_{proton}^2x^2/t\right)^{1.5}(M_X^2-m_{proton}^2)};
 $$
 
-% \begin{figure}[!h]
-% \centering
-% \includegraphics[width=.8\textwidth]{figures/diagrams.eps}
-% \caption{Diagrams of DVCS (a) and VMP (b); (c) DVCS (VMP) amplitude in a Regge-factorized form.}
-% \label{fig:diagrams}
-% \end{figure}
+
 
 %   $$
 %    A(s,t,Q^2,{M_v}^2)= \widetilde{A_s}e^{-i\frac{\pi}{2}\alpha_s(t)}\left(\frac{s}{s_{0}}\right)^{\alpha_s(t)}
