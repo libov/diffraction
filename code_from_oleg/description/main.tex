@@ -13,6 +13,9 @@
 \usepackage{color}
 \usepackage{subfigure}
 
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
 \begin{document}
 
 \vskip 0.5cm \centerline{\bf\Large What's inside Oleg's code}
@@ -31,17 +34,16 @@ $$
 \frac{d^2\sigma}{dt dM_X^2}=\frac{1}{(1. - t/0.71)^4} \left(\frac{s}{M_X^2}\right)^{2(1.08 + 0.25t) - 2} \sigma_{PpN}(M_X^2,t) KF(x,t,M_X^2)
 $$
 
-
 $$
-\sigma_{PpN}(M_X^2,t)=Im A(M_X^2,t) / m_{proton}
-$$
-
-$$
-Im A(M_X^2,t) = Im\ \alpha(s) \sum_{i=0}^{2}\frac{1}{(1. - t/0.71)^{4(i+2)}} / ((2*i+2.5-Re\ \alpha(s))^2+im^2)
+\sigma_{PpN}(M_X^2,t)=\frac{\Im A(M_X^2,t)}{m_{proton}}
 $$
 
 $$
-Im\ \alpha(s) = \sum_{i=0}^{2} s^\delta c_i (1-s_i/s)^(Re\ \alpha(s_i)) \theta(s-s_i) 
+\Im A(M_X^2,t) = \sum_{j=0}^{2}\frac{1}{(1. - t/0.71)^{4(j+2)}} \frac{\Im\alpha(s)}{(2 j+2.5-Re\ \alpha(s))^2+(\Im\alpha(s))^2}
+$$
+
+$$
+\Im\alpha(s) = \sum_{i=0}^{2} s^\delta c_i (1-s_i/s)^(Re\ \alpha(s_i)) \theta(s-s_i) 
 $$
 
 $$
@@ -61,6 +63,9 @@ $$
 KF(x,t,M_X^2) = \frac{x (1-x)^2}{\left(1 - 4m_{proton}^2x^2/t\right)^{1.5}(M_X^2-m_{proton}^2)};
 $$
 
+$$
+x = \frac{-t}{M_X^2 - m_{proton}^2 - t};
+$$
 
 
 %   $$
