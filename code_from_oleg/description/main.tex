@@ -29,26 +29,52 @@
 \label{fig:diagrams}
 \end{figure}
 This is similar to what is shown in Fig.8 of~\cite{Jenkovszky11}.
-The cross-section implemented in the code reads:
+The cross-section implemented in the code is very similar to eq.(21) of~\cite{Jenkovszky11} and reads:
 $$
-\frac{d^2\sigma}{dt dM_X^2}=\frac{1}{(1. - t/0.71)^4} \left(\frac{s}{M_X^2}\right)^{2(1.08 + 0.25t) - 2} \sigma_{PpN}(M_X^2,t) KF(x,t,M_X^2)
-$$
-
-$$
-\sigma_{PpN}(M_X^2,t)=\frac{\Im A(M_X^2,t)}{m_{proton}}
+\frac{d^2\sigma}{dt dM_X^2}=A_0 \frac{1}{(1. - t/0.71)^4} \left(\frac{s}{M_X^2}\right)^{2(1.08 + 0.25t) - 2} \sigma_{PpN}(M_X^2,t) KF(x,t,M_X^2)
 $$
 
 $$
-\Im A(M_X^2,t) = \sum_{n=1}^{3}\frac{1}{(1. - t/0.71)^{4(n+1)}} \frac{\Im\alpha(M_X^2)}{(2 n +0.5-\Re\alpha(M_X^2))^2+(\Im\alpha(M_X^2))^2}
+A_0=977.441
+$$
+
+$$
+\sigma_{PpN}(M_X^2,t)=\frac{\Im A(M_X^2,t)}{m_\textrm{proton}}
+$$
+
+$$
+\Im A(M_X^2,t) = \sum_{n=1}^{3}\frac{1}{(1. - t/0.71)^{4(n+1)}} \frac{\Im\alpha(M_X^2)}{\left[2 n +0.5-\Re\alpha(M_X^2)\right]^2+\left[\Im\alpha(M_X^2)\right]^2}
 $$
 
 $$
 \Im\alpha(s) = s^\delta \sum_{j=0}^{2} c_i (1-s_i/s)^{\Re\alpha(s_i)} \theta(s-s_i) 
 $$
 
+\begin{equation*}
+\begin{split}
+\Re\alpha(s) =  \alpha_0 + 
+\frac{s}{\pi}
+\sum_{j=0}^{2} c_i
+  &\left[\theta(s_i-s)\frac{\Gamma(1-\delta) \Gamma(1+\lambda_i)}{\Gamma(\lambda_i-\delta+2) s_i^{1-\delta}} C_i  + \right. \\ 
+  &\left.\theta(s-s_i) \left(\pi s^{\delta-1} \left(\frac{s-s_i}{s}\right)^{\lambda_i} \frac{1}{\tan{\left[\pi (1-\delta)\right]}} - \frac{\Gamma(-\delta) \Gamma(1+\lambda_i)}{\Gamma(\lambda_i-\delta+1)} \frac{s_i^\delta}{s} D_i\right)  \right]
+\end{split}
+\end{equation*}
+
 $$
-\Re\alpha(s) =  \alpha_0 + \frac{s}{\pi} \sum_{j=0}^{2} c_i (\frac{\Gamma(1-\delta) \Gamma(1+\lambda_i)}{\Gamma(\lambda_i-\delta+2) s_i^{1-\delta}} f21 \theta(s_i-s) + (\pi s^{\delta-1} \left(\frac{s-s_i}{s}\right)^{\lambda_i} \frac{1}{\tan{\pi (1-\delta)}} - GGGsf21) \theta(s-s_i))
+C_i=\begin{cases}
+_2F_1(1; 1-\delta; \lambda_i-\delta +2; s/s_i),&\text{if $\lambda_i-\delta +2 < 10$;}\\
+_2F_1(1; 1-\delta; 9.999; s/s_i),&\text{else.}\\
+\end{cases}
 $$
+
+$$
+D^2_i=\begin{cases}
+_2F_1(\delta-\lambda_i; 1; \delta+1;  s_i/s),&\text{if $\lambda_i-\delta < 10$;}\\
+_2F_1(-9.999; 1; \delta+1; s_i/s),&\text{else.}\\
+\end{cases}
+$$
+
+Here the $_2F_1$ is the Gauss' hypergeometric function.
 
 $$
 \alpha_0=-0.410839
@@ -70,13 +96,19 @@ $$
 \delta=-0.460021
 $$
 
+$$
+\lambda_0=  0.840083,
+\lambda_1 = 2.09707,
+\lambda_2 = 11.1778.
+$$
+
 Kinematic factor:
 $$
-KF(x,t,M_X^2) = \frac{x (1-x)^2}{\left(1 - 4m_{proton}^2x^2/t\right)^{1.5}(M_X^2-m_{proton}^2)};
+KF(x,t,M_X^2) = \frac{x (1-x)^2}{\left(1 - 4m_\textrm{proton}^2x^2/t\right)^{3/2}(M_X^2-m_\textrm{proton}^2)};
 $$
 
 $$
-x = \frac{-t}{M_X^2 - m_{proton}^2 - t};
+x = \frac{-t}{M_X^2 - m_\textrm{proton}^2 - t};
 $$
 
 
