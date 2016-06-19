@@ -1,0 +1,29 @@
+Headers := Header.h DataBody.h DataBody_sym.h DataBody_usym.h DataBody_sym_b.h DataBody_usym_b.h DataContainer.h 
+src     := $(patsubst %.h,%.cxx, $(Headers))
+obj     := $(patsubst %.h,%.o,   $(Headers))
+path    := ../
+
+#Flags   := `root-config --cflags --glibs`
+Flags   := `root-config --cflags` `root-config --libs` `gsl-config --libs` -lMinuit -lMathMore -O2 
+
+
+I       := -I $(path)include 
+VPATH   := $(path)src $(path)include $(path)
+xxx     := xxx
+
+
+#go:$(obj) Diff.Fpp.cxx 
+#go:$(obj) fit_wout_Kf.cxx
+go:$(obj) additional.cxx 
+	@cd $(path); make -f rawMakefile 
+	g++ $(I) -o $(xxx) $^ $(Flags) 
+	@echo Compiled.
+	./$(xxx);
+
+
+%.o:%.cxx %.h
+	g++ $(Flags) $(I) -c $< 
+
+.PHONY:clean
+clean:
+	@./clear

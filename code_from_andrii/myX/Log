@@ -1,0 +1,75 @@
+Integral dcs/(dtdM2) #sqrt(s)=7000.0
+I full:   16.8709  (ksi<0.05s)
+I<3.4GeV:  5.0464
+I>3.4GeV: 11.8244  (ksi<0.05s)
+
+Integral dcs/(dtdM2) #sqrt(s)=8000.0
+I full:  17.4289  (ksi<0.05s)
+I<3.60GeV:5.3724
+I>3.60GeV:12.0565   (ksi<0.05s)
+
+Integral dcs/(dtdM2) #sqrt(s)=13000.0
+I full:  19.5885   (ksi<0.05s)
+I<4.00GeV:6.2910
+I>4.00GeV:13.2974  (ksi<0.05s)
+//~~~
+
+Integral dcs/(dtdM2) #sqrt(s)=13000.0
+I full:  19.5885  (ksi<0.05s)
+I<3.60GeV:5.9341
+I>3.60GeV:13.6544   (ksi<0.05s)
+
+Integral dcs/(dtdM2) #sqrt(s)=10000.0
+I full:  18.3899  (ksi<0.05s)
+I<3.60GeV:5.6221
+I>3.60GeV:12.7678 (ksi<0.05s)
+
+Integral dcs/(dtdM2) #sqrt(s)=7000.0
+I full:   16.8709  (ksi<0.05s)
+I<4.0GeV:  5.5451
+I>4.0GeV: 11.3258  (ksi<0.05s)
+
+//###############################################
+Integral cs(DD) #sqrt(s)=7000.0
+I full:  8.6322
+M1+M2< 6.8GeV:0.9264
+M1+M2> 6.8GeV:7.7058
+
+Integral cs(DD) #sqrt(s)=8000.0
+I full:  8.9358
+M1+M2< 7.2GeV:1.0077
+M1+M2> 7.2GeV:7.9280
+
+Integral cs(DD) #sqrt(s)=13000.0
+I full:  10.0800
+M1+M2< 8.0GeV:1.2057
+M1+M2> 8.0GeV:8.8744
+
+//###############################################
+Integral cs(DD) #sqrt(s)=13000.0
+I full:  10.0800
+M1+M2< 4.0GeV:0.3981
+M1+M2> 4.0GeV:9.6819
+
+ntegral cs(DD) #sqrt(s)=8000.0
+I full:  8.9358
+M1+M2< 3.6GeV:0.2628
+M1+M2> 3.6GeV:8.6730
+
+ntegral cs(DD) #sqrt(s)=7000.0
+I full:  8.6322
+M1+M2< 3.4GeV:0.2039
+M1+M2> 3.4GeV:8.4282
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Integral cs(DD) #sqrt(s)=1800.0
+I full:  5.9481
+M1+M2< 6.8GeV:0.8151
+M1+M2> 6.8GeV:5.1330
+
+
+Integral cs(DD) #sqrt(s)=1800.0
+I full:  5.9481
+M1+M2< 3.4GeV:0.1741
+M1+M2> 3.4GeV:5.7741
+

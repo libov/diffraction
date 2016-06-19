@@ -1,0 +1,1 @@
+vim -U .vimrc $1

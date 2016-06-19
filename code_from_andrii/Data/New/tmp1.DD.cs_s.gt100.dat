@@ -1,0 +1,9 @@
+1)#sigma_{DD} 
+#Experimental points.
+#Source: [tmp1](a)Kaidalov, Poghosyan, 0909.5156v1,"Description of soft diffraction in the framework of reggeon calculus. Predictions for LHC"
+#Figure 7: Double-diffractive cross-section as a function of √s.
+%sqrt(s)  cs    d0  -d    +d 
+198.9    5.0167  0 3.1502 3.1287
+630.0    4.5856  0 1.5104 1.4888
+900.45   4.7583  0 2.956  2.9777
+1802.5   6.3121  0 1.683  1.7046

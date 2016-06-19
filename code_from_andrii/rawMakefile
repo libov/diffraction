@@ -1,0 +1,18 @@
+Headers := DataCard.h Drawer.h Header.h DataBody.h DataBody_sym.h DataBody_usym.h DataBody_sym_b.h DataBody_usym_b.h DataContainer.h
+src     := $(patsubst %.h,%.cxx, $(Headers))
+obj     := $(patsubst %.h,%.o,   $(Headers))
+
+Flags   := `root-config --cflags --glibs`
+I       := -I include 
+VPATH   := src include
+xxx     := raw
+
+$(xxx):$(obj)
+#	g++ $(Flags) $(I) -lMinuit -o $(xxx) $^
+
+%.o:%.cxx %.h
+	g++ $(Flags) $(I) -c $< 
+
+.PHONY:clean
+clean:
+	@rm *.o  $(xxx)

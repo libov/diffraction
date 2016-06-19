@@ -1,0 +1,42 @@
+#Source: {tmp2}|(tmp1).[4]Goulianos,Montanha, "Factorization and scaling in hadronic diffraction"
+# arXiv:hep-ph/9805496v1
+
+#Table 7: Total single diffraction cross sections for ξ ≤ 0.05. The cross sections of the references marked with † were derived from the experimental data using the procedure outlined in the text.
+%√s[GeV]  2σsd [mb]      Ref.
+  14      3.94  0.20   † [11]   
+  20      4.46  0.25   † [11]   
+  16.2    4.87  0.08   † [12]   
+  17.6    4.96  0.08   † [12]   
+  19.1    4.94  0.08   † [12]   
+  23.8    5.19  0.08   † [12]   
+  27.2    5.42  0.09   † [12]   
+  23.4    6.07  0.17     [13]   
+  26.9    6.05  0.22     [13]   
+  30.5    6.37  0.15     [13]   
+  32.3    6.32  0.22     [13]   
+  35.2    7.01  0.28     [13]   
+  38.3    6.08  0.29     [13]   
+  23.3    6.5   0.2      [14]    
+  27.4    6.3   0.2      [14]
+  32.4    6.5   0.2      [14]
+  35.5    7.5   0.5      [14]
+  38.5    7.3   0.4      [14]
+  44.7    7.3   0.3      [14]
+  53.7    7.0   0.3      [14]
+  62.3    7.5   0.3      [14]
+ 546      9.4   0.7      [15]
+1800      8.46  1.77   † [16] 
+ 546      8.34  0.36   † [10] 
+1800      9.12  0.46   † [10]  
+
+[10] F. Abe et al., CDF Collaboration, Phys. Rev. D 50 (1994) 5535.
+[11] R. L. Cool, K. Goulianos, S. L. Segler, H. Sticker and S. N. White, Fermilab E396, Phys. Rev. Lett. 47 (1981) 701.
+[12] J. Schamberger et al., Phys. Rev. D. 17 (1978) 1268.
+[13] M. G. Albrow et al., Nucl. Phys. B108 (1976) 1.
+[14] J.C.M. Armitage et al., Nucl. Phys. B194 (1982) 365.
+[15] D. Bernard et al., Phys. Lett. B 186 (1987) 227.
+[16] N. A. Amos el al. (E710 Collaboration), Phys. Lett. B 301 (1993) 313.
+##______________________________________________________________________
+
+
+

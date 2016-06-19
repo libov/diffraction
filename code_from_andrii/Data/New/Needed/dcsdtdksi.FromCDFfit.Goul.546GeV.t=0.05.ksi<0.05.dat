@@ -1,0 +1,26 @@
+1)dcs/(dtdksi)  546GeV
+#Source: {tmp2}|(tmp1).[4]Goulianos,Montanha, "Factorization and scaling in hadronic diffraction"
+# arXiv:hep-ph/9805496v1
+#Table 4: Differential cross sections at 546 GeV and $|t|=0.05$ GeV$^{2}$ extracted from the CDF measurements~[10]
+#Origin: [10] F. Abe et al., CDF Collaboration, Phys. Rev. D 50 (1994) 5535.
+%#ksi    dcs/dksi/dt  delta
+-0.0046   21.18       4.73
+-0.0027   539.1       40.3
+-0.0009   3534.4      124.0
+ 0.0009   4561.3      135.1
+ 0.0027   1682.9      73.8 
+ 0.0046   563.0       38.8 
+ 0.0064   300.9       30.5 
+ 0.0082   226.5       25.7 
+ 0.0100   178.2       22.6 
+ 0.0119   136.5       20.6 
+ 0.0146   107.3       13.9 
+ 0.0192   82.4        11.3 
+ 0.0256   77.9        11.7 
+ 0.0348   67.0        11.6 
+ 0.0458   49.6        9.8  
+ 0.0577   54.4        10.6 
+ 0.0714   41.2        7.8  
+ 0.0870   47.7        7.9  
+ 0.109    44.5        7.1 
+

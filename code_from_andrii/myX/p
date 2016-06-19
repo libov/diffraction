@@ -1,0 +1,26 @@
+#!/bin/sh
+
+SOURCE=fit_trajectory.cxx
+EXE=xxx
+
+if [ "$1" ]
+then
+ SOURCE="$1" 
+#../DataBody_sym_b.o  ../DataBody_usym_b.o  ../DataBody.o  ../DataBody_sym.o  ../DataBody_usym.o    ../DataContainer.o
+# EXE="$1.exe"
+fi
+
+echo compiling $EXE
+rm -f $EXE *.o
+
+#echo "g++ -o $EXE $SOURCE `root-config --cflags` `root-config --libs` `gsl-config --libs` -lMinuit -lMathMore"
+g++ $SOURCE -o $EXE `root-config --cflags` `root-config --libs` `gsl-config --libs` -lMinuit -lMathMore -O2 
+
+rm -f log_$EXE err_log_$EXE
+
+./$EXE 
+#$2 > $EXE.log 2> $EXE.err.log
+# &tail -f err_log_$EXE
+echo The End.
+#exit 0
+#readme

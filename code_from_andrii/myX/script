@@ -1,0 +1,1 @@
+ls *.eps |awk '{print($1" "$1);}'|sed 's\.eps\.kf.eps\'|awk '{print("mv "$2" "$1);}'|sh

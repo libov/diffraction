@@ -1,0 +1,4 @@
+rm *.root *.eps *.png
+#if [ `ls *.root|wc -l`>0 ]; then rm *.root; fi
+#if [ `ls *.png|wc -l`>0 ]; then rm *.png; fi
+#if [ `ls *.eps|wc -l`>0 ]; then rm *.eps; fi
