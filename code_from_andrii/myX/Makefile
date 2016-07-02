@@ -18,7 +18,6 @@ go:$(obj) fit_d2sgdtdM2_t.v9.cxx
 	@cd $(path); make -f rawMakefile 
 	g++ $(I) -o $(xxx) $^ $(Flags) 
 	@echo Compiled.
-	./$(xxx);
 
 
 %.o:%.cxx %.h
