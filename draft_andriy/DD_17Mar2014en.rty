@@ -1,0 +1,10 @@
+%
+% maiksamp.rty 29.11.2001
+%
+\input maik.rty
+%\def\refitem#1{\relax}
+
+\renewcommand{\P}{I\!\!P}
+\renewcommand{\Im}{\ensuremath{{\mathop{\mathrm{Im\,}}\nolimits}}}
+\renewcommand{\Re}{\ensuremath{{\mathop{\mathrm{Re\,}}\nolimits}}}
+\endinput
