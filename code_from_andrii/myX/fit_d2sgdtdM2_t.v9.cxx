@@ -488,9 +488,9 @@ void stage_IInormalize(double*t,double* dtarr,double*M2,double* dm2arr,const int
 void stage_II_SDpredict()
 {
  double w_max=15000;
-// const int Nt=300, Nm2=500;//canonical
+const int Nt=300, Nm2=500;//canonical
 // const int Nt=200, Nm2=6000;
- const int Nt=500, Nm2=3000;
+//  const int Nt=500, Nm2=3000;
 
  double M2[Nm2], t[Nt];
  double dt[Nt]={0}, dm2[Nm2]={0};
