@@ -120,6 +120,8 @@ int it,im2;
 const double peak_M2_min = 2, peak_M2_max=3.1;
 
 
+// August 2016 Jenkovszky, Libov
+bool nonlinear_pomeron_trajectory = true;
 
 void prestage_tlin(double*t, double* dtarr, int Nt, double tL, double tU)
  {double dt=(tU-tL)/Nt;
@@ -147,8 +149,12 @@ void prestage_M2(double*M2, double* dm2arr, int Nm2, double M2L, double M2U, con
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 double alpha_t(double t) //alpha_t= alpha(t)-1  (!!!)
 {
+  // August 2016 Jenkovszky, Libov
+  double alpha1=0;
+  if (nonlinear_pomeron_trajectory) alpha1 = alpha_x / 10;
+  return ( alpha0 + alpha_x*t - alpha1 * sqrt(4 * sq(mpi) - t) );
 //return 0.08+0.25*t;
-return alpha0+alpha_x*t+alpha2*t*t;
+//return alpha0+alpha_x*t+alpha2*t*t;
 //return 0.087+0.44*t+0.078*t*t;//** 
 //return 0.09+0.44*t; //+
 //return 0.09+0.44*t+0.078*t*t; //*
