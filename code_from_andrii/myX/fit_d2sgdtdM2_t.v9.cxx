@@ -3980,7 +3980,7 @@ int main()
 
 //#### Print Parameters ############################
 printf("Ael:%7.3f, bel:%6.3f, al0:%4.3f, al:%6.3f,Ares:%6.3f, Cbg:%6.3f, R:%6.3f, bres:%6.3f, bbg:%6.3f\n",Norm_el,bel,alpha0,alpha_x,Ares/(2*mp), Cbg,nR0,b_res,b_bg);
-printf("al0:%4.3f, al:%6.3f \t ", alpha0,alpha_x);
+printf("alpha0:%4.3f, alphax:%6.3f \t ", alpha0,alpha_x);
 printf("eta:%6.2f, xi:%6.2f\n",_eta,xi);
 
 //   Plot_xGoul();
