@@ -1758,7 +1758,7 @@ void Plot_IIIx_el(const int Nt, double* t, double*dcs1,TString sleg, const char*
 // TH2D h_windowCross1_xx("h_windowCross1", "", 1000, 0,  1, 1000,1e-5,1e3);
 // TH2D h_windowCross1_xx("h_windowCross1", "", 1000, 0,0.5, 1000,1e-2,500);//*0:1
 //  TH2D h_windowCross1_xx("h_windowCross1", "", 1000, 0,2.6, 1000,1e-5,500);//0:2.6
-  TH2D h_windowCross1_xx("h_windowCross1", "", 1000, 0,1.6, 1000,5e-4,500);//0:2.6
+  TH2D h_windowCross1_xx("h_windowCross1", "", 1000, 0,0.5, 1000,5e-4,500);//0:2.6
   TCanvas cCross_xx("cCross", "cCross", 800, 800);
   cCross_xx.Divide(1, 1);
   cCross_xx.Draw();
