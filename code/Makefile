@@ -16,7 +16,7 @@ vpath %.h   $(INC)
 all: plots.exe
 
 plots.o: plots.cxx
-	gcc -o $(OBJ)/$@ -c $< -I inc/ $(FLAGS_OBJ) -I$(TXMLPARSER)/inc
+	gcc -o $(OBJ)/$@ -c $< -I$(TXMLPARSER)/inc -I inc/ $(FLAGS_OBJ)
 
 TVectorMeson.o: TVectorMeson.cxx TVectorMeson.h
 	gcc -o $(OBJ)/$@ -c $< -I inc/ $(FLAGS_OBJ)
