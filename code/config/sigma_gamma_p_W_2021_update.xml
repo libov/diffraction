@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<plot>
+
+  <legend>
+    <title>J/#psi photoproduction on protons</title>
+    <x1>0.5</x1>
+    <y1>0.12</y1>
+    <x2>0.87</x2>
+    <y2>0.6</y2>
+  </legend>
+
+  <cms_energy>7e3</cms_energy>
+
+  <meson_type>jpsi</meson_type>
+
+  <filename>sigma_gamma_p_W_2021_update.eps</filename>
+
+  <x_axis>
+    <title>W [GeV]</title>
+    <low_range>3.1</low_range>
+    <up_range>7e3</up_range>
+    <log>true</log>
+  </x_axis>
+
+  <y_axis>
+    <title>#sigma(#gamma p #rightarrow J/#psi p) [nb]</title>
+    <low_range>1</low_range>
+    <up_range>1000</up_range>
+    <log>true</log>
+  </y_axis>
+
+  <plot>
+    <sigma_gamma_p_model>reggeometry</sigma_gamma_p_model>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} from eq.(6)</legend_entry>
+    <process>gammap</process>
+    <variable>w</variable>
+    <line_style>3</line_style>
+    <line_color>4</line_color>
+  </plot>
+
+  <dataplot>
+    <filename>../data/lhcb2014_sigwexp_wplus.txt</filename>
+    <legend_entry>LHCb 930 pb^{-1} (W^{+} solutions)</legend_entry>
+    <marker_style>20</marker_style>
+    <marker_size>1</marker_size>
+    <marker_color>1</marker_color>
+  </dataplot>
+  
+  <dataplot>
+    <filename>../data/lhcb2014_sigwexp_wminus.txt</filename>
+    <legend_entry>LHCb 930 pb^{-1} (W^{-} solutions)</legend_entry>
+    <marker_style>21</marker_style>
+    <marker_size>1</marker_size>
+    <marker_color>1</marker_color>
+  </dataplot>
+  
+  <dataplot>
+    <filename>../data/lhcb2018_sigwexp_wplus.txt</filename>
+    <legend_entry>LHCb 2018 XYZ pb^{-1} (W^{+} solutions)</legend_entry>
+    <marker_style>22</marker_style>
+    <marker_size>1</marker_size>
+    <marker_color>2</marker_color>
+  </dataplot>
+
+  <dataplot>
+    <filename>../data/zeus_0201043_jpsi_ee.txt</filename>
+    <legend_entry>ZEUS 38 pb^{-1}</legend_entry>
+    <marker_style>20</marker_style>
+    <marker_size>0.6</marker_size>
+    <marker_color>4</marker_color>
+  </dataplot>
+
+  <dataplot>
+    <filename>../data/zeus_0201043_jpsi_mumu.txt</filename>
+    <legend_entry>ZEUS 55 pb^{-1}</legend_entry>
+    <marker_style>20</marker_style>
+    <marker_size>0.6</marker_size>
+    <marker_color>6</marker_color>
+  </dataplot>
+
+  <dataplot>
+    <filename>../data/h1_0510016_jpsi.txt</filename>
+    <legend_entry>H1 55 pb^{-1}</legend_entry>
+    <marker_style>20</marker_style>
+    <marker_size>0.6</marker_size>
+    <marker_color>7</marker_color>
+  </dataplot>
+
+  <dataplot>
+    <filename>../data/h1_1304.5162_jpsi.txt</filename>
+    <legend_entry>H1 140.8 pb^{-1}</legend_entry>
+    <marker_style>20</marker_style>
+    <marker_size>0.6</marker_size>
+    <marker_color>8</marker_color>
+  </dataplot>
+
+</plot>
