@@ -56,7 +56,7 @@
   
   <dataplot>
     <filename>../data/lhcb2018_sigwexp_wplus.txt</filename>
-    <legend_entry>LHCb 2018 XYZ pb^{-1} (W^{+} solutions)</legend_entry>
+    <legend_entry>LHCb 2018 204 pb^{-1} (W^{+} solutions)</legend_entry>
     <marker_style>22</marker_style>
     <marker_size>1</marker_size>
     <marker_color>2</marker_color>
@@ -92,6 +92,14 @@
     <marker_style>20</marker_style>
     <marker_size>0.6</marker_size>
     <marker_color>8</marker_color>
+  </dataplot>
+
+  <dataplot>
+    <filename>../data/alice2018_sigwexp.txt</filename>
+    <legend_entry>Alice 2018 XYZ pb^{-1}</legend_entry>
+    <marker_style>23</marker_style>
+    <marker_size>1</marker_size>
+    <marker_color>28</marker_color>
   </dataplot>
 
 </plot>
