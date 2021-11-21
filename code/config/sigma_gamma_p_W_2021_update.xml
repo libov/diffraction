@@ -96,10 +96,18 @@
 
   <dataplot>
     <filename>../data/alice2018_sigwexp.txt</filename>
-    <legend_entry>Alice 2018 XYZ pb^{-1}</legend_entry>
+    <legend_entry>Alice 2018 13.7 nb^{-1}</legend_entry>
     <marker_style>23</marker_style>
     <marker_size>1</marker_size>
     <marker_color>28</marker_color>
+  </dataplot>
+  
+  <dataplot>
+    <filename>../data/alice2014_sigwexp.txt</filename>
+    <legend_entry>Alice 2014 8.4 nb^{-1}</legend_entry>
+    <marker_style>24</marker_style>
+    <marker_size>1</marker_size>
+    <marker_color>35</marker_color>
   </dataplot>
 
 </plot>
