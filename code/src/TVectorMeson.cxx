@@ -78,7 +78,13 @@ Double_t TVectorMeson::sigma_gamma_p_reggeometry ( Double_t W ) {
     double term3 = pow(1+Q2tilde/Q20, 2*n);
     double term4 = 2*2*alphaprim*log(W/W0) + 4*(a/Q2tilde+b/(2*pow(PROTON_MASS,2)) ) ; // additional factor 2 in the first term because s=W^2
 
-    return ( (term1*term2) / (term3*term4) );
+    double f = 1.000;
+    if (fMesonType == kPSI) {
+        f = 0.361358;
+        //f = 0.4;
+    }
+
+    return ( f * (term1*term2) / (term3*term4) );
 }
 
 Double_t TVectorMeson::sigma_gamma_p (Double_t *x, Double_t *par) {

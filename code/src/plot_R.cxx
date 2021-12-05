@@ -1,3 +1,8 @@
+// WARNING!
+// In order for this script to work, the psi2S-specific normalisation of the gamma-p
+// crossection has to be deactivated! (set to 1)
+// see TVectorMeson::sigma_gamma_p_reggeometry
+//
 #include <TXMLEngine.h>
 #include <TObjArray.h>
 #include <TObjString.h>
