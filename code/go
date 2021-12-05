@@ -1,2 +1,3 @@
 ./plots.exe config/sigma_gamma_p_W_2021_update.xml
 ./plots.exe config/sigma_gamma_p_W_psi2S_2021.xml
+./plot_R.exe
