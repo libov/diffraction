@@ -1,7 +1,8 @@
 // WARNING!
-// In order for this script to work, the psi2S-specific normalisation of the gamma-p
+// In order to determine f, the psi2S-specific normalisation of the gamma-p
 // crossection has to be deactivated! (set to 1)
 // see TVectorMeson::sigma_gamma_p_reggeometry
+// If the correction applied, the R calculated in this script should close to the experimental value, that is ~0.17
 //
 #include <TXMLEngine.h>
 #include <TObjArray.h>
@@ -38,7 +39,7 @@ int main (int argc, char **argv) {
     plot.set_x_axis_range(1, 1000);
     plot.set_x_axis_title("W [GeV]");
 
-    plot.set_y_axis_range(0.45, 0.47);
+    plot.set_y_axis_range(0, 0.3);
     plot.set_y_axis_title("R_Regge = #sigma (#psi(2S))/#sigma (J/#psi)");
     
     plot.set_log_x(false);
