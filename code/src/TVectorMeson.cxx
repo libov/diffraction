@@ -84,6 +84,12 @@ Double_t TVectorMeson::sigma_gamma_p_reggeometry ( Double_t W ) {
         //f = 0.4;
     }
 
+    // uncomment only as a cross-check - when plotting sigma(Jpsi)x0.17 on the psi2S plot.
+    // See also comments in TVectorMeson::sigma_gamma_p in (kREGGEOMETRY_JPSI_HACK section)
+    /*if (fMesonType == kJPSI) {
+        f = 0.17;
+    }*/
+
     return ( f * (term1*term2) / (term3*term4) );
 }
 
