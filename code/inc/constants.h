@@ -16,7 +16,7 @@ const double ALPHA          = 1./137;
 const double S2GAP          = 0.8;
 
 enum MesonType              { kJPSI, kPSI };
-enum sigma_gamma_p_model    { kPOWERLAW, kLOGARITHMIC, kREGGEOMETRY };
+enum sigma_gamma_p_model    { kPOWERLAW, kLOGARITHMIC, kREGGEOMETRY, kREGGEOMETRY_JPSI_HACK };
 enum process                { kGammaP, kPP};
 enum variable               { kY, kW };
 

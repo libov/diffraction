@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<plot>
+
+  <legend>
+    <title>#psi(2S) photoproduction on protons</title>
+    <x1>0.5</x1>
+    <y1>0.12</y1>
+    <x2>0.87</x2>
+    <y2>0.6</y2>
+  </legend>
+
+  <cms_energy>13e3</cms_energy>
+
+  <meson_type>psi</meson_type>
+
+  <filename>sigma_gamma_p_W_psi2S_2021.eps</filename>
+
+  <x_axis>
+    <title>W [GeV]</title>
+    <low_range>30</low_range>
+    <up_range>2e3</up_range>
+    <log>true</log>
+  </x_axis>
+
+  <y_axis>
+    <title>#sigma(#gamma p #rightarrow #psi(2S) p) [nb]</title>
+    <low_range>0.1</low_range>
+    <up_range>200</up_range>
+    <log>true</log>
+  </y_axis>
+
+  <plot>
+    <sigma_gamma_p_model>reggeometry</sigma_gamma_p_model>
+    <legend_entry>#sigma_{#gamma p#rightarrow V p} from eq.(6)</legend_entry>
+    <process>gammap</process>
+    <variable>w</variable>
+    <line_style>1</line_style>
+    <line_color>4</line_color>
+  </plot>
+
+  <plot>
+    <sigma_gamma_p_model>reggeometry_jpsi_hack</sigma_gamma_p_model>
+    <legend_entry>#sigma(J/#psi)#times 0.17</legend_entry>
+    <process>gammap</process>
+    <variable>w</variable>
+    <line_style>3</line_style>
+    <line_color>2</line_color>
+  </plot>
+
+  <dataplot>
+    <filename>../data/lhcb2018_psi2s_sigwexp.txt</filename>
+    <legend_entry>LHCb 2018 204 pb^{-1}</legend_entry>
+    <marker_style>21</marker_style>
+    <marker_size>1</marker_size>
+    <marker_color>2</marker_color>
+  </dataplot>
+
+   <dataplot>
+    <filename>../data/lhcb_7TeV_psi2s_sigwexp.txt</filename>
+    <legend_entry>LHCb 2014</legend_entry>
+    <marker_style>22</marker_style>
+    <marker_size>1</marker_size>
+    <marker_color>1</marker_color>
+  </dataplot> 
+  
+  <dataplot>
+    <filename>../data/h1_psi2s_sigwexp.txt</filename>
+    <legend_entry>H1</legend_entry>
+    <marker_style>24</marker_style>
+    <marker_size>1</marker_size>
+    <marker_color>4</marker_color>
+  </dataplot> 
+  
+</plot>

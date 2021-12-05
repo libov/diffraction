@@ -91,6 +91,15 @@ Double_t TVectorMeson::sigma_gamma_p (Double_t *x, Double_t *par) {
     if ( fModel == kPOWERLAW ) return sigma_gamma_p_power_law(x[0]);
     if ( fModel == kLOGARITHMIC ) return sigma_gamma_p_logarithmic(x[0]);
     if ( fModel == kREGGEOMETRY ) return sigma_gamma_p_reggeometry(x[0]);
+    if ( fModel == kREGGEOMETRY_JPSI_HACK ) {
+        // WARNING, ugly hack. This is a special case where we want to plot the Jpsi prediction
+        // on the Psi2S plot. Therefore, need another TVectorMeson meson object.
+        // Proper treatment would mean defining TVectorMeson object on the curve level, not on the plot level....
+        TVectorMeson jpsi;
+        jpsi.fMesonMass=JPSI_MASS;
+        jpsi.fMesonType=kJPSI;
+        return 0.17 * jpsi.sigma_gamma_p_reggeometry(x[0]);
+    }
 
     // if nothing better found...
     return -1;

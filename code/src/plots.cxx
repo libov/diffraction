@@ -101,6 +101,8 @@ int main (int argc, char **argv) {
             meson -> set_sigma_gamma_p_model (kLOGARITHMIC);
         } else if ( parser.getNodeContent("sigma_gamma_p_model") == "reggeometry") {
             meson -> set_sigma_gamma_p_model (kREGGEOMETRY);
+        } else if ( parser.getNodeContent("sigma_gamma_p_model") == "reggeometry_jpsi_hack") {
+            meson -> set_sigma_gamma_p_model (kREGGEOMETRY_JPSI_HACK);
         }
 
         if (parser.getNodeContent("process") == "pp") {
