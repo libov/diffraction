@@ -31,7 +31,7 @@
 
   <plot>
     <sigma_gamma_p_model>reggeometry</sigma_gamma_p_model>
-    <legend_entry>#sigma_{#gamma p#rightarrow J/#psi p} from eq.(6)</legend_entry>
+    <legend_entry>Reggeometric Pomeron</legend_entry>
     <process>gammap</process>
     <variable>w</variable>
     <line_style>1</line_style>
